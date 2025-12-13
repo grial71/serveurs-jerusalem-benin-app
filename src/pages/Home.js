@@ -1,3 +1,5 @@
+// Dans src/pages/Home.js
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../App.css'; 
@@ -6,10 +8,9 @@ function Home() {
     // Définition des couleurs pour une meilleure gestion des styles
     const PRIMARY_COLOR = '#0866FF'; // Bleu Facebook pour les boutons et liens
 
-    // ATTENTION : Si tes noms de fichiers dans public/images/ sont différents,
-    // tu devras adapter les chemins ci-dessous à tes noms (ex: /images/LogoPN.jpg)
-    const BACKGROUND_IMAGE_PATH = '/images/nature-hero.png'; 
-    const LOGO_IMAGE_PATH = '/images/logoPN.jpg'; 
+    // ATTENTION : Les chemins n'ont PLUS le slash (/) initial pour fonctionner sur GitHub Pages
+    const BACKGROUND_IMAGE_PATH = 'images/nature-hero.png'; 
+    const LOGO_IMAGE_PATH = 'images/logoPN.jpg'; 
 
     return (
         <main className="home-page">
