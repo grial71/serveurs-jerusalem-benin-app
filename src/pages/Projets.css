@@ -1,0 +1,54 @@
+/* Dans src/pages/Projects.css */
+
+.projects-page {
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto; /* Centrer le contenu de la page */
+}
+
+/* Style de la section d'introduction */
+.hero-projects {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+/* Grille pour afficher les cartes */
+.projects-list {
+    display: grid;
+    /* 3 colonnes de taille égale, mais s'adapte si l'écran est petit */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 30px; /* Espace entre les cartes */
+}
+
+/* Style de la carte de projet */
+.project-card {
+    background-color: #FFFFFF; /* Fond blanc */
+    border: 1px solid #D0D3D7; /* Bordure légère (comme le diviseur FB) */
+    border-radius: 12px; /* Coins arrondis (comme les cartes FB) */
+    padding: 20px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); /* Petite ombre subtile */
+    text-align: center;
+}
+
+.project-card h2 {
+    color: #0866FF; /* Utiliser le bleu principal FB pour les titres */
+    font-size: 20px;
+    margin-top: 0;
+}
+
+/* Style du bouton "Voir les détails" */
+.btn-primary {
+    background-color: #0866FF; /* Bleu FB */
+    color: #FFFFFF; /* Texte blanc */
+    border: none;
+    border-radius: 6px;
+    padding: 10px 15px;
+    margin-top: 15px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+.btn-primary:hover {
+    background-color: #1877F2; /* Bleu légèrement plus clair au survol */
+}

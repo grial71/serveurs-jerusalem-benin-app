@@ -1,0 +1,159 @@
+/* Dans src/pages/Contact.css */
+
+.contact-page {
+    /* La page principale ne doit pas avoir de marges */
+    padding: 0;
+    margin: 0;
+}
+
+/* --- 1. SECTION HÉRO/BANNIÈRE (Impressionnante) --- */
+.contact-hero {
+    /* Utilise la maquette pour les dimensions et l'effet */
+    height: 400px; 
+    background-size: cover;
+    background-position: center;
+    color: white; 
+    position: relative;
+    display: flex;
+    align-items: flex-end; /* Texte en bas */
+    padding: 0 40px 40px 40px; /* Espace en bas */
+}
+
+/* Voile semi-transparent pour que le texte soit lisible */
+.contact-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4); /* Voile noir/sombre */
+}
+
+.hero-content {
+    position: relative; /* Au-dessus du voile */
+    z-index: 2;
+}
+
+.hero-content h1 {
+    font-size: 48px;
+    margin-bottom: 5px;
+}
+
+.hero-content p {
+    font-size: 18px;
+    opacity: 0.9;
+}
+
+.hero-logo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    /* Styles pour la bordure blanche autour du logo (comme dans la maquette) */
+    border: 4px solid white; 
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    object-fit: cover;
+}
+
+
+/* --- 2. SECTION COORDONNÉES ET LIENS SOCIAUX --- */
+.contact-details {
+    background-color: #F8F8F8; /* Gris clair */
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Effet d'élévation pro */
+}
+
+.contact-details h2 {
+    color: #008000; /* Vert Nature/Harmonie */
+    border-bottom: 2px solid #E0E0E0;
+    padding-bottom: 10px;
+    margin-top: 0;
+}
+
+.details-list p {
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+/* Conteneur pour aligner les boutons */
+.contact-buttons {
+    display: flex;
+    gap: 20px; /* Espace entre les boutons */
+    margin-top: 30px;
+    justify-content: center; /* Centre les boutons dans la section */
+    flex-wrap: wrap; /* Assure que les boutons passent à la ligne sur mobile */
+}
+
+/* Style du bouton WhatsApp (Vert FB/Nature) */
+.whatsapp-button {
+    display: inline-flex;
+    align-items: center;
+    background-color: #25D366; /* Vert WhatsApp officiel */
+    color: white;
+    padding: 12px 25px;
+    border-radius: 30px; /* Très arrondi */
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+    transition: background-color 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre impressionnante */
+}
+
+.whatsapp-button:hover {
+    background-color: #128C7E; /* Vert sombre au survol */
+}
+
+.whatsapp-icon {
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+/* --- NOUVEAU: Style du bouton Facebook (Bleu pour faire jeu) --- */
+.facebook-button {
+    display: inline-flex;
+    align-items: center;
+    background-color: #4267B2; /* Bleu Facebook */
+    color: white;
+    padding: 12px 25px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+    transition: background-color 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.facebook-button:hover {
+    background-color: #365899; /* Bleu légèrement plus foncé au survol */
+}
+
+
+/* --- 3. SECTION CARTE --- */
+.contact-map {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.contact-map h2 {
+    color: #1C1E21; /* Gris foncé classique */
+}
+
+.map-placeholder {
+    height: 250px;
+    background-color: #EFEFEF;
+    border: 1px dashed #AAAAAA;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #888888;
+    font-style: italic;
+    border-radius: 8px;
+}
