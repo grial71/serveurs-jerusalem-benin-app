@@ -238,5 +238,98 @@
   }
 </script>
 
+  <!-- === Sélecteur de langue === -->
+<div style="position: fixed; top: 15px; right: 15px; z-index: 9999;">
+  <select id="langSelector" onchange="switchLang()" style="padding: 5px; border-radius: 5px; font-weight: bold;">
+    <option value="fr">🇫🇷 Français</option>
+    <option value="es">🇪🇸 Español</option>
+    <option value="en">🇬🇧 English</option>
+  </select>
+</div>
+
+<script>
+  const translations = {
+    fr: {
+      accueil: "Accueil",
+      projets: "Projets",
+      apropos: "À Propos",
+      contact: "Contact",
+      titre: "Bienvenue sur le portail des Serveurs de Jérusalem au Bénin",
+      sousTitre: "Soutenir l'autosuffisance, la permaculture et le développement durable pour les communautés béninoises.",
+      pilier1: "🌱 Autosuffisance Alimentaire",
+      pilier2: "♻️ Systèmes de Permaculture",
+      pilier3: "🔹 Recyclage et Valorisation",
+      pilier1Texte: "Former et équiper les communautés pour une production alimentaire indépendante et durable.",
+      pilier2Texte: "Créer des écosystèmes agricoles résilients et régénérateurs en harmonie avec la nature.",
+      pilier3Texte: "Transformer les déchets en ressources précieuses pour l'économie circulaire locale.",
+      aproposTitre: "À Propos de LSJ Bénin",
+      aproposTexte: "Nous sommes une initiative communautaire qui promeut des projets durables et solidaires.",
+      contactTitre: "Contactez-nous",
+      adresse: "Adresse : Lot N°123, Rue de l'Espoir, Jérusalem, Bénin"
+    },
+    es: {
+      accueil: "Inicio",
+      projets: "Proyectos",
+      apropos: "Sobre Nosotros",
+      contact: "Contacto",
+      titre: "Bienvenido al portal de los Servidores de Jerusalén en Benín",
+      sousTitre: "Apoyar la autosuficiencia, la permacultura y el desarrollo sostenible para las comunidades beninesas.",
+      pilier1: "🌱 Autosuficiencia Alimentaria",
+      pilier2: "♻️ Sistemas de Permacultura",
+      pilier3: "🔹 Reciclaje y Valorización",
+      pilier1Texte: "Formar y equipar a las comunidades para una producción alimentaria independiente y sostenible.",
+      pilier2Texte: "Crear ecosistemas agrícolas resilientes y regenerativos en armonía con la naturaleza.",
+      pilier3Texte: "Transformar los residuos en recursos valiosos para la economía circular local.",
+      aproposTitre: "Sobre LSJ Benín",
+      aproposTexte: "Somos una iniciativa comunitaria que promueve proyectos sostenibles y solidarios.",
+      contactTitre: "Contáctenos",
+      adresse: "Dirección: Lote N°123, Calle de la Esperanza, Jerusalén, Benín"
+    },
+    en: {
+      accueil: "Home",
+      projets: "Projects",
+      apropos: "About Us",
+      contact: "Contact",
+      titre: "Welcome to the Portal of the Servants of Jerusalem in Benin",
+      sousTitre: "Supporting self-sufficiency, permaculture, and sustainable development for Beninese communities.",
+      pilier1: "🌱 Food Self-Sufficiency",
+      pilier2: "♻️ Permaculture Systems",
+      pilier3: "🔹 Recycling and Upcycling",
+      pilier1Texte: "Train and equip communities for independent and sustainable food production.",
+      pilier2Texte: "Create resilient and regenerative agricultural ecosystems in harmony with nature.",
+      pilier3Texte: "Transform waste into valuable resources for the local circular economy.",
+      aproposTitre: "About LSJ Benin",
+      aproposTexte: "We are a community initiative promoting sustainable and solidarity-based projects.",
+      contactTitre: "Contact us",
+      adresse: "Address: Lot N°123, Rue de l'Espoir, Jerusalem, Benin"
+    }
+  };
+
+  function switchLang() {
+    const lang = document.getElementById("langSelector").value;
+    const t = translations[lang];
+    if (!t) return;
+
+    document.querySelector("nav a[href='#accueil']").innerText = t.accueil;
+    document.querySelector("nav a[href='#projets']").innerText = t.projets;
+    document.querySelector("nav a[href='#apropos']").innerText = t.apropos;
+    document.querySelector("nav a[href='#contact']").innerText = t.contact;
+    document.querySelector(".hero h2").innerText = t.titre;
+    document.querySelector(".hero p").innerText = t.sousTitre;
+    document.querySelectorAll(".pillar")[0].querySelector("h3").innerText = t.pilier1;
+    document.querySelectorAll(".pillar")[1].querySelector("h3").innerText = t.pilier2;
+    document.querySelectorAll(".pillar")[2].querySelector("h3").innerText = t.pilier3;
+    document.querySelectorAll(".pillar")[0].querySelector("p").innerText = t.pilier1Texte;
+    document.querySelectorAll(".pillar")[1].querySelector("p").innerText = t.pilier2Texte;
+    document.querySelectorAll(".pillar")[2].querySelector("p").innerText = t.pilier3Texte;
+    document.querySelector("#apropos h3").innerText = t.aproposTitre;
+    document.querySelector("#apropos p").innerText = t.aproposTexte;
+    document.querySelector("#contact h3").innerText = t.contactTitre;
+    document.querySelectorAll("#contact p")[2].innerText = t.adresse;
+  }
+</script>
+
+  
 </body>
 </html>
+
