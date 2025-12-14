@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/static/css/main.ddd31c28.css",
-    "main.js": "/static/js/main.8c91d2d6.js",
-    "static/js/453.dea55b80.chunk.js": "/static/js/453.dea55b80.chunk.js",
-    "index.html": "/index.html",
-    "main.ddd31c28.css.map": "/static/css/main.ddd31c28.css.map",
-    "main.8c91d2d6.js.map": "/static/js/main.8c91d2d6.js.map",
-    "453.dea55b80.chunk.js.map": "/static/js/453.dea55b80.chunk.js.map"
+    "main.css": "/serveurs-jerusalem-benin-app/static/css/main.ddd31c28.css",
+    "main.js": "/serveurs-jerusalem-benin-app/static/js/main.2ea8d0f2.js",
+    "static/js/453.dea55b80.chunk.js": "/serveurs-jerusalem-benin-app/static/js/453.dea55b80.chunk.js",
+    "index.html": "/serveurs-jerusalem-benin-app/index.html",
+    "main.ddd31c28.css.map": "/serveurs-jerusalem-benin-app/static/css/main.ddd31c28.css.map",
+    "main.2ea8d0f2.js.map": "/serveurs-jerusalem-benin-app/static/js/main.2ea8d0f2.js.map",
+    "453.dea55b80.chunk.js.map": "/serveurs-jerusalem-benin-app/static/js/453.dea55b80.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.ddd31c28.css",
-    "static/js/main.8c91d2d6.js"
+    "static/js/main.2ea8d0f2.js"
   ]
 }
