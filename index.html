@@ -3,14 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LSJ Bénin</title>
-  <meta name="description" content="Portail des projets de permaculture, autosuffisance et économie circulaire de LSJ Bénin. Découvrez nos initiatives à Abomey-Calavi, Bénin.">
+  <title>LSJ Bénin – Jude Projet Agricole</title>
   <style>
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background-color: #f4f4f4;
-      scroll-behavior: smooth;
+      background-color: #f9f9f9;
+      color: #333;
     }
     header {
       background-color: #007bff;
@@ -25,28 +24,32 @@
     }
     header img {
       height: 50px;
-      margin-right: 15px;
+      margin-right: 10px;
     }
     nav a {
       color: white;
       text-decoration: none;
       margin: 0 10px;
       font-weight: bold;
+      transition: 0.3s;
     }
     nav a:hover {
       text-decoration: underline;
     }
     section {
-      padding: 40px 20px;
+      padding: 50px 20px;
       text-align: center;
+      animation: fadeIn 1.2s ease;
     }
     .hero {
       background-image: url("images/nature-hero.png");
       background-size: cover;
       background-position: center;
       color: white;
-      padding: 120px 20px;
-      text-shadow: 1px 1px 4px #000;
+      padding: 100px 20px;
+    }
+    .hero h2 {
+      font-size: 2.5rem;
     }
     .pillars {
       display: flex;
@@ -56,46 +59,32 @@
       margin-top: 30px;
     }
     .pillar {
-      background: #ffffff;
-      border-radius: 10px;
+      background: white;
+      border-radius: 12px;
       padding: 20px;
-      width: 300px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.1);
-      transition: transform 0.3s, box-shadow 0.3s;
-      cursor: pointer;
-      font-family: 'Georgia', serif;
-      font-size: 1rem;
+      width: 280px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
     }
     .pillar:hover {
       transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-    }
-    .tourisme {
-      background: #fff;
-      font-family: 'Georgia', serif;
-      font-size: 1.1rem;
-      line-height: 1.6;
-      padding: 50px 30px;
-      max-width: 800px;
-      margin: 0 auto;
-      box-shadow: 0 5px 25px rgba(0,0,0,0.1);
-      border-radius: 12px;
-      margin-bottom: 40px;
     }
     iframe {
       width: 100%;
       height: 300px;
       border: none;
-      border-radius: 8px;
+      border-radius: 10px;
+      margin: 20px 0;
     }
     footer {
       background-color: #eee;
       text-align: center;
       padding: 20px;
+      font-size: 0.9rem;
     }
-    button.audio-btn, .scroll-top-btn {
+    .audio-btn {
       position: fixed;
-      bottom: 20px;
+      bottom: 80px;
       right: 20px;
       background: #007bff;
       color: white;
@@ -103,16 +92,59 @@
       border: none;
       border-radius: 8px;
       cursor: pointer;
-      z-index: 999;
+      z-index: 1000;
     }
-    .scroll-top-btn {
-      right: 160px;
+    .whatsapp-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #25D366;
+      color: white;
+      padding: 12px 18px;
+      border-radius: 50%;
+      font-size: 22px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      z-index: 999;
+      text-decoration: none;
+    }
+    .white-section {
+      background: white;
+      border-radius: 12px;
+      padding: 40px;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+      margin: 20px auto;
+      max-width: 900px;
+    }
+    .zoom {
+      transition: transform 0.3s ease;
+      cursor: zoom-in;
+    }
+    .zoom:hover {
+      transform: scale(1.03);
+    }
+    .back-top {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background-color: #007bff;
+      color: white;
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-size: 14px;
+      text-decoration: none;
+      z-index: 1000;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
     }
   </style>
 </head>
 <body>
 
-<header>
+<header id="top">
   <div style="display:flex; align-items:center;">
     <img src="images/LogoPN.jpg" alt="Logo LSJ Bénin">
     <h1>LSJ Bénin</h1>
@@ -127,65 +159,73 @@
 </header>
 
 <section class="hero" id="accueil">
-  <h2>Bienvenue sur le portail des Serveurs de Jérusalem au Bénin</h2>
-  <p>De la Production à Livraison, notre passion</p>
-  <p>Soutenir l'autosuffisance, la permaculture et le développement durable pour les communautés béninoises.</p>
+  <h2>De la Production à Livraison, notre passion</h2>
+  <p>Développement agricole durable à Hêvié et Godomey – Bénin 🇧🇯</p>
 </section>
 
 <section id="projets">
   <h2>Nos Piliers d'Action</h2>
   <div class="pillars">
-    <div class="pillar">
-      <h3>🌱 Autosuffisance Alimentaire</h3>
-      <p>Nous formons les communautés à cultiver leur propre nourriture, assurant sécurité et autonomie sur le long terme.</p>
+    <div class="pillar zoom">
+      <h3>🌿 Culture et Élevage</h3>
+      <p>Production de légumes (tomates cœur de bœuf, laitue, carotte, piment doux...) et élevage de lapins, poulets Goliath, pintades, cailles, etc.</p>
     </div>
-    <div class="pillar">
-      <h3>♻️ Systèmes de Permaculture</h3>
-      <p>Des techniques inspirées de la nature pour produire durablement : culture en poches, compostage, économie circulaire.</p>
+    <div class="pillar zoom">
+      <h3>♻️ Approche Circulaire</h3>
+      <p>Récupération des déchets organiques, compost, autonomie d’irrigation et fertilisation naturelle des sols.</p>
     </div>
-    <div class="pillar">
-      <h3>🔹 Recyclage et Valorisation</h3>
-      <p>Chaque déchet devient ressource. Le plastique devient structure, le compost fertilise les sols. Rien ne se perd, tout se transforme.</p>
+    <div class="pillar zoom">
+      <h3>🎓 Formation des Jeunes</h3>
+      <p>Transmission des savoir-faire à des jeunes motivés dans deux quartiers ruraux en pleine mutation urbaine.</p>
     </div>
+  </div>
+
+  <div class="white-section">
+    <h3>📍 Projet Dogoudo (Hêvié)</h3>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3973.741823889473!2d2.2482192!3d6.4081677!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1024a9fb299f45fd%3A0x6949ff46b8b02487!2sH%C3%AAvi%C3%A9%2C%20B%C3%A9nin!5e0!3m2!1sfr!2sfr!4v1702560000000" allowfullscreen></iframe>
+
+    <h3>📍 Projet Aïmevo (Godomey)</h3>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3973.7119210061794!2d2.3364754!3d6.3920087!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1024ad37f4e98337%3A0x6806f6f660f6e760!2sGodomey%2C%20B%C3%A9nin!5e0!3m2!1sfr!2sfr!4v1702560000000" allowfullscreen></iframe>
   </div>
 </section>
 
-<section id="tourisme">
-  <h2>Tourisme et Découverte</h2>
-  <div class="tourisme">
-    <p><strong>Abomey-Calavi</strong> est une destination dynamique à seulement 18 km de Cotonou. Elle combine urbanité, nature et culture béninoise authentique. Explorez :</p>
-    <ul>
-      <li><strong>Ganvié</strong>, la "Venise de l’Afrique", un village sur pilotis à visiter en pirogue</li>
-      <li>Les quartiers animés de <strong>Calavi</strong> et <strong>Agla</strong>, riches en artisanat et gastronomie locale</li>
-      <li>L'<strong>Espace Culturel Le Centre</strong>, avec musée et expositions modernes</li>
-      <li>Les plages lagunaires propices à la détente et aux échanges culturels</li>
-    </ul>
-    <p>Une immersion complète dans un territoire vivant, solidaire, inspirant.</p>
-  </div>
-</section>
-
-<section id="apropos">
+<section id="apropos" class="white-section">
   <h2>À Propos de LSJ Bénin</h2>
-  <p>Nous sommes une initiative communautaire béninoise fondée par Jude, un acteur local engagé. À travers deux projets agricoles situés à Hêvié et Godomey (Abomey‑Calavi), nous favorisons l’autonomie alimentaire, la formation des jeunes, et le recyclage intelligent. Nos projets s’ancrent dans la vie locale, intégrant les besoins des habitants et l’écosystème qui les entoure.</p>
+  <p>
+    Jude Gbetoho et son équipe développent une agriculture intégrée dans deux zones clés de la commune d’Abomey-Calavi : Dogoudo (Hêvié) et Aïmevo (Godomey).
+    Ces projets combinent culture biologique, élevage local, formation de jeunes et recyclage. L'objectif est de bâtir une économie rurale autonome et inclusive.
+  </p>
 </section>
 
-<section id="contact">
-  <h2>Contactez-nous</h2>
-  <p><strong>Téléphone :</strong> <a href="tel:+229160986656">+229 1 60 98 66 56</a></p>
-  <p><strong>Courriel :</strong> <a href="mailto:gbetohopelaurg@gmail.com">gbetohopelaurg@gmail.com</a></p>
-  <p><strong>Facebook :</strong> <a href="https://www.facebook.com/lesserveursdejerusalem" target="_blank">Visitez notre page</a></p>
+<section id="tourisme" class="white-section">
+  <h2>🌍 Tourisme & Découverte</h2>
+  <p>La commune d’Abomey-Calavi, à l’ouest de Cotonou, est un carrefour entre ville et campagne. Hêvié est célèbre pour sa tranquillité et ses étendues agricoles, tandis que Godomey est en pleine expansion, mêlant urbanisme moderne et héritage rural.</p>
+  <p><strong>À ne pas manquer :</strong> les marchés traditionnels, les paysages de savane, les pratiques agricoles locales, la cuisine béninoise et les cultures Vaudou et Fon qui enrichissent la région.</p>
+</section>
+
+<section id="contact" class="white-section">
+  <h2>📬 Contact</h2>
+  <p><strong>📞 Téléphone :</strong> <a href="tel:+229160986656">+229 1 60 98 66 56</a></p>
+  <p><strong>📧 Email :</strong> <a href="mailto:gbetohopelaurg@gmail.com">gbetohopelaurg@gmail.com</a></p>
+  <p><strong>🌐 Facebook :</strong> <a href="https://www.facebook.com/lesserveursdejerusalem" target="_blank">Les Serveurs de Jérusalem</a></p>
 </section>
 
 <footer>
-  <p>© 2025 Les Serveurs de Jérusalem au Bénin. Tous droits réservés.</p>
+  © 2025 Les Serveurs de Jérusalem au Bénin – Tous droits réservés.
 </footer>
 
+<!-- Audio -->
 <audio id="player" autoplay loop>
   <source src="audio/afro-background-01.mp3" type="audio/mp3">
   <source src="audio/afro-background-02.mp3" type="audio/mp3">
 </audio>
-<button class="audio-btn" onclick="toggleAudio()">🎵 Activer / Couper la musique</button>
-<button class="scroll-top-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">🔝 Revenir à l’Accueil</button>
+<button class="audio-btn" onclick="toggleAudio()">🎵 Musique On/Off</button>
+
+<!-- WhatsApp -->
+<a class="whatsapp-btn" href="https://wa.me/229160986656" target="_blank" title="Contacter sur WhatsApp">💬</a>
+
+<!-- Retour accueil -->
+<a class="back-top" href="#top">⬆ Accueil</a>
 
 <script>
   const audio = document.getElementById("player");
