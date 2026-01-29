@@ -2,250 +2,386 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LSJ Bénin | De la Production à l'Assiette - Excellence Agroécologique</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta name="description" content="LSJ Bénin - De la Production à l'Assiette. Excellence agroécologique à Dogoudo, Hêvié.">
+  <title>LSJ Bénin | Excellence Agricole & Souveraineté Alimentaire</title>
   
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet">
   
   <style>
-    /* --- SYSTÈME DE DESIGN --- */
+    /* ========================================
+       SYSTÈME DE DESIGN & VARIABLES (PRÉCISION)
+       ========================================
+    */
     :root {
-      --primary: #0056b3;
-      --secondary: #28a745;
-      --accent: #f39c12;
-      --dark: #0f172a;
-      --light: #f8fafc;
-      --glass: rgba(255, 255, 255, 0.97);
-      --shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
-      --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      --primary: #004a99;
+      --primary-light: #0066cc;
+      --secondary: #218838;
+      --secondary-dark: #19692c;
+      --accent: #ff9900;
+      --dark-deep: #050a14;
+      --text-main: #1e293b;
+      --text-muted: #475569;
+      --bg-glass: rgba(255, 255, 255, 0.98);
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
+      --shadow-hd: 0 35px 60px -15px rgba(0, 0, 0, 0.5);
+      --transition-fast: 0.2s ease;
+      --transition-med: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      --radius-sm: 10px;
+      --radius-md: 25px;
+      --radius-lg: 50px;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    
+    /* --- RESET & OPTIMISATION --- */
+    * { 
+      box-sizing: border-box; 
+      margin: 0; 
+      padding: 0; 
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    html { 
+      scroll-behavior: smooth; 
+      font-size: 16px; /* Base pour rem */
+    }
+
     body { 
       font-family: 'Poppins', sans-serif; 
-      color: var(--dark); 
+      color: var(--text-main); 
+      background-color: #f1f5f9;
       line-height: 1.8;
-      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
-                  url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
-      background-attachment: fixed;
-      background-size: cover;
-      background-position: center;
+      overflow-x: hidden;
     }
 
-    /* --- BARRE DE TRADUCTION & NAVIGATION --- */
-    .top-bar {
-      background: var(--dark);
+    /* --- BACKGROUND IMMERSIF (FIXE) --- */
+    .bg-overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                  url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      z-index: -1;
+    }
+
+    /* --- TOP NAVIGATION (TRADUCTION) --- */
+    .top-utility-bar {
+      background: var(--dark-deep);
       padding: 10px 8%;
       display: flex;
       justify-content: flex-end;
       align-items: center;
-      gap: 15px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
     }
 
     #google_translate_element {
-      padding: 5px;
-      border-radius: 5px;
+      min-width: 150px;
     }
 
+    /* --- HEADER PRINCIPAL --- */
     header { 
-      background: var(--glass);
-      backdrop-filter: blur(15px);
+      background: var(--bg-glass);
+      backdrop-filter: blur(20px);
+      padding: 15px 8%; 
       display: flex; 
       justify-content: space-between; 
       align-items: center; 
-      padding: 20px 8%; 
       position: sticky; 
       top: 0; 
-      z-index: 2000; 
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      z-index: 1000; 
+      box-shadow: var(--shadow-md);
+      transition: var(--transition-med);
     }
     
-    .logo-container { display: flex; align-items: center; text-decoration: none; }
-    .logo-container img { 
+    .brand-group { 
+      display: flex; 
+      align-items: center; 
+      text-decoration: none;
+      transition: transform 0.3s ease;
+    }
+    .brand-group:hover { transform: scale(1.02); }
+
+    .brand-group img { 
       height: 70px; 
+      width: 70px;
       border-radius: 50%; 
       border: 3px solid var(--primary); 
-      margin-right: 18px; 
+      margin-right: 20px; 
       background: white; 
       padding: 3px;
-      transition: var(--transition);
+      box-shadow: var(--shadow-sm);
     }
-    .logo-container:hover img { transform: rotate(360deg); }
-    .logo-container h1 { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--primary); }
+    
+    .brand-group h1 { 
+      font-family: 'Playfair Display', serif; 
+      font-size: 1.8rem; 
+      color: var(--primary); 
+      font-weight: 900;
+      letter-spacing: -0.5px;
+    }
 
-    nav ul { list-style: none; display: flex; gap: 35px; }
+    /* Menu de Navigation */
+    nav ul { list-style: none; display: flex; gap: 30px; }
     nav a { 
-      color: var(--dark); 
+      color: var(--text-main); 
       text-decoration: none; 
       font-weight: 700; 
       font-size: 0.85rem; 
       text-transform: uppercase; 
       letter-spacing: 1.5px;
-      transition: 0.3s;
       position: relative;
+      padding: 5px 0;
     }
-    nav a:hover { color: var(--secondary); }
     nav a::after {
-      content: ''; position: absolute; width: 0; height: 3px; bottom: -5px; left: 0;
-      background: var(--secondary); transition: 0.3s;
+      content: ''; position: absolute; width: 0; height: 3px; 
+      bottom: 0; left: 0; background: var(--secondary); 
+      transition: var(--transition-med);
     }
     nav a:hover::after { width: 100%; }
+    nav a:hover { color: var(--secondary); }
 
     /* --- HERO SECTION --- */
-    .hero { 
-      height: 85vh;
+    .hero-container { 
+      height: 90vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      color: white;
       text-align: center;
+      color: white;
       padding: 0 10%;
     }
-    .hero .badge { 
-      font-size: 1.3rem; 
-      font-weight: 700; 
+    
+    .hero-tagline { 
+      font-size: clamp(1.2rem, 3vw, 1.8rem); 
+      font-weight: 800; 
       text-transform: uppercase; 
       letter-spacing: 6px; 
       color: var(--secondary);
       margin-bottom: 25px;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+      background: rgba(0,0,0,0.4);
+      padding: 10px 30px;
+      border-radius: var(--radius-sm);
+      backdrop-filter: blur(5px);
+      animation: fadeInDown 1s ease-out;
     }
-    .hero h2 { 
+
+    .hero-container h2 { 
       font-family: 'Playfair Display', serif; 
-      font-size: 5rem; 
-      margin-bottom: 25px; 
+      font-size: clamp(3rem, 10vw, 6.5rem); 
+      margin-bottom: 30px; 
       line-height: 1.1; 
-      text-shadow: 4px 4px 20px rgba(0,0,0,0.8);
+      text-shadow: 10px 10px 40px rgba(0,0,0,0.8);
+      animation: fadeInUp 1s ease-out 0.2s both;
     }
-    .hero p { 
-      font-size: 1.5rem; 
+
+    .hero-container p { 
+      font-size: clamp(1.1rem, 4vw, 1.6rem); 
       max-width: 900px; 
       font-weight: 300; 
-      text-shadow: 2px 2px 10px rgba(0,0,0,0.6);
+      text-shadow: 2px 2px 15px rgba(0,0,0,0.6);
+      animation: fadeInUp 1s ease-out 0.4s both;
     }
 
-    /* --- SECTIONS PRINCIPALES --- */
-    section { padding: 120px 10%; }
-    .content-box {
-      background: var(--glass);
-      border-radius: 40px;
-      padding: 100px 70px;
-      box-shadow: var(--shadow);
-      border: 1px solid rgba(255,255,255,0.4);
-      margin-bottom: 80px;
+    /* --- STRUCTURE DES SECTIONS --- */
+    .section-wrapper { 
+      padding: 120px 8%; 
+      position: relative;
     }
 
-    .section-header { text-align: center; margin-bottom: 80px; }
-    .section-title { 
+    .glass-inner-card {
+      background: var(--bg-glass);
+      border-radius: var(--radius-lg);
+      padding: 100px 7%;
+      box-shadow: var(--shadow-hd);
+      border: 1px solid rgba(255,255,255,0.6);
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .title-block { text-align: center; margin-bottom: 80px; }
+    .title-block h2 { 
       font-family: 'Playfair Display', serif; 
-      font-size: 3.2rem; 
+      font-size: clamp(2.5rem, 6vw, 3.8rem); 
       color: var(--primary); 
+      margin-bottom: 25px;
       position: relative;
       display: inline-block;
     }
-    .section-title::after { 
-      content: ''; 
-      width: 130px; height: 6px; 
-      background: var(--secondary); 
-      position: absolute; 
-      bottom: -15px; left: 50%; 
-      transform: translateX(-50%);
-      border-radius: 10px;
+    .title-block h2::after {
+      content: ''; width: 140px; height: 8px; background: var(--secondary);
+      position: absolute; bottom: -15px; left: 50%; transform: translateX(-50%);
+      border-radius: 20px;
     }
 
-    /* --- GRILLE D'EXPERTISE --- */
-    .grid-expertise { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 45px; }
-    .card-expertise { 
-      background: white; 
-      border-radius: 30px; 
-      padding: 55px 40px; 
-      transition: var(--transition);
-      border-left: 10px solid var(--secondary);
-      box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+    /* --- GRILLE D'EXPERTISE (RESPONSIVE) --- */
+    .expertise-grid { 
+      display: grid; 
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); 
+      gap: 40px; 
     }
-    .card-expertise:hover { transform: translateY(-15px); box-shadow: var(--shadow); }
-    .card-expertise h3 { 
+
+    .expert-card { 
+      background: white; 
+      border-radius: var(--radius-md); 
+      padding: 60px 40px; 
+      transition: var(--transition-med);
+      border-top: 12px solid var(--secondary);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      position: relative;
+      overflow: hidden;
+    }
+    .expert-card:hover { transform: translateY(-20px); box-shadow: var(--shadow-lg); }
+    .expert-card::before {
+      content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+      background: radial-gradient(circle, rgba(40,167,69,0.05) 0%, transparent 70%);
+      transition: 0.5s; opacity: 0;
+    }
+    .expert-card:hover::before { opacity: 1; }
+
+    .expert-card h3 { 
       color: var(--primary); 
-      font-size: 1.7rem; 
+      font-size: 1.8rem; 
       margin-bottom: 20px; 
       font-family: 'Playfair Display', serif;
+      z-index: 1;
     }
-    .card-expertise p { font-size: 1.1rem; color: #555; }
-    .icon-large { font-size: 4rem; margin-bottom: 25px; display: block; }
+    .expert-card p { 
+      font-size: 1.1rem; 
+      color: var(--text-muted); 
+      z-index: 1;
+      position: relative;
+    }
 
     /* --- VISION & HISTOIRE --- */
-    .vision-flex { display: flex; flex-direction: column; gap: 50px; }
-    .vision-text { max-width: 1000px; margin: 0 auto; text-align: left; }
-    .vision-text p { font-size: 1.25rem; margin-bottom: 30px; color: #334155; }
-    .quote-box { 
+    .vision-container { display: flex; flex-direction: column; gap: 60px; }
+    .vision-content { display: grid; grid-template-columns: 1.4fr 0.6fr; gap: 60px; align-items: center; }
+    .vision-text { font-size: 1.25rem; color: #334155; }
+    .vision-text p { margin-bottom: 30px; }
+
+    .highlight-quote { 
       background: var(--primary); 
       color: white; 
-      padding: 45px; 
-      border-radius: 35px; 
-      font-size: 1.3rem; 
+      padding: 50px; 
+      border-radius: var(--radius-md); 
+      font-size: 1.4rem; 
       font-style: italic;
-      border-right: 15px solid var(--secondary);
+      border-left: 15px solid var(--secondary);
+      line-height: 1.5;
     }
 
-    /* --- CARTE & LOCALISATION --- */
-    .map-wrapper { 
-      border-radius: 40px; 
+    /* --- AGROTOURISME & MAP (RESPONSIVE) --- */
+    .map-frame-container { 
+      border-radius: var(--radius-md); 
       overflow: hidden; 
-      border: 12px solid white; 
-      box-shadow: var(--shadow); 
-      height: 500px; 
+      border: 15px solid white; 
+      box-shadow: var(--shadow-lg); 
+      height: 550px; 
+      width: 100%;
       margin-top: 50px;
     }
-    iframe { width: 100%; height: 100%; border: none; }
 
-    /* --- CONTACT --- */
-    .contact-info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; text-align: center; }
-    .contact-card h4 { font-size: 1.5rem; color: var(--primary); margin-bottom: 15px; }
-    .contact-card p, .contact-card a { font-size: 1.2rem; color: var(--dark); text-decoration: none; font-weight: 600; }
-
-    /* --- BOUTONS SOCIAUX FLOTTANTS --- */
-    .social-float-bar { position: fixed; bottom: 40px; right: 40px; display: flex; flex-direction: column; gap: 20px; z-index: 3000; }
-    .btn-circle { 
-      width: 75px; height: 75px; border-radius: 50%; display: flex; align-items: center; justify-content: center; 
-      color: white; text-decoration: none; font-size: 2.3rem; box-shadow: 0 15px 35px rgba(0,0,0,0.4); 
-      transition: var(--transition); 
+    /* --- CONTACT SECTION --- */
+    .contact-grid { 
+      display: grid; 
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+      gap: 30px; 
     }
-    .btn-whatsapp { background: #25D366; }
-    .btn-tiktok { background: #000; }
-    .btn-circle:hover { transform: scale(1.15) rotate(10deg); }
+    .contact-box { 
+      padding: 40px; 
+      text-align: center; 
+      border-radius: var(--radius-md); 
+      background: #f8fafc;
+      transition: 0.3s;
+    }
+    .contact-box:hover { background: white; box-shadow: var(--shadow-md); }
+    .contact-box h4 { font-size: 1.5rem; color: var(--primary); margin-bottom: 15px; }
+    .contact-box a { color: var(--secondary); font-weight: 800; text-decoration: none; font-size: 1.3rem; }
 
-    .audio-toggle { 
-      position: fixed; bottom: 40px; left: 40px; background: white; 
-      border: none; padding: 18px 30px; border-radius: 50px; cursor: pointer; 
-      box-shadow: var(--shadow); display: flex; align-items: center; gap: 15px; 
-      font-weight: 700; z-index: 3000; color: var(--primary);
+    /* --- BOUTONS FLOTTANTS (TIKTOK / WHATSAPP) --- */
+    .dock-actions { 
+      position: fixed; 
+      bottom: 40px; 
+      right: 40px; 
+      display: flex; 
+      flex-direction: column; 
+      gap: 20px; 
+      z-index: 5000; 
     }
 
-    /* --- FOOTER --- */
-    footer { background: #0a0a0a; color: #888; padding: 100px 10% 40px; text-align: center; }
-    .footer-content { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 70px; text-align: left; margin-bottom: 70px; }
-    .footer-content h5 { color: white; font-size: 1.5rem; margin-bottom: 25px; font-family: 'Playfair Display', serif; }
-    .footer-content a { color: #888; text-decoration: none; display: block; margin-bottom: 15px; transition: 0.3s; }
-    .footer-content a:hover { color: var(--secondary); padding-left: 8px; }
+    .btn-action { 
+      width: 80px; height: 80px; border-radius: 50%; 
+      display: flex; align-items: center; justify-content: center; 
+      color: white; text-decoration: none; font-size: 2.5rem; 
+      box-shadow: var(--shadow-lg); transition: var(--transition-med); 
+      cursor: pointer;
+    }
+    .wa-btn { background: #25D366; }
+    .tk-btn { background: #000000; }
+    .btn-action:hover { transform: scale(1.15) rotate(15deg); }
 
+    .music-control { 
+      position: fixed; bottom: 40px; left: 40px; 
+      background: white; border: none; padding: 20px 40px; 
+      border-radius: 60px; cursor: pointer; font-weight: 800; 
+      box-shadow: var(--shadow-lg); z-index: 5000; 
+      color: var(--primary); font-size: 1rem;
+      display: flex; align-items: center; gap: 15px;
+    }
+
+    /* --- FOOTER DE PRESTIGE --- */
+    footer { background: var(--dark-deep); color: #94a3b8; padding: 100px 8% 50px; text-align: left; }
+    .footer-main { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 100px; margin-bottom: 80px; }
+    .footer-main h5 { color: white; font-size: 1.8rem; margin-bottom: 30px; font-family: 'Playfair Display', serif; }
+    .footer-main p { font-size: 1rem; line-height: 2; }
+    .footer-main a { color: #94a3b8; text-decoration: none; display: block; margin-bottom: 15px; transition: 0.3s; }
+    .footer-main a:hover { color: white; padding-left: 10px; }
+
+    .copyright { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 40px; text-align: center; }
+
+    /* --- ANIMATIONS --- */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* --- RESPONSIVE ADAPTATION (ULTRA) --- */
     @media (max-width: 1024px) {
-      .hero h2 { font-size: 3.2rem; }
-      .footer-content { grid-template-columns: 1fr; gap: 50px; }
-      .content-box { padding: 60px 30px; }
+      .vision-content { grid-template-columns: 1fr; }
+      .footer-main { grid-template-columns: 1fr; gap: 60px; }
+      header { padding: 15px 5%; }
+    }
+
+    @media (max-width: 768px) {
+      header { flex-direction: column; gap: 15px; }
+      nav ul { gap: 15px; flex-wrap: wrap; justify-content: center; }
+      .glass-inner-card { padding: 60px 25px; border-radius: var(--radius-md); }
+      .hero-container h2 { font-size: 3rem; }
+      .dock-actions { right: 20px; bottom: 100px; }
+      .music-control { left: 20px; bottom: 20px; padding: 12px 25px; font-size: 0.8rem; }
+      .top-utility-bar { justify-content: center; }
     }
   </style>
 </head>
 <body>
 
-<div class="top-bar">
+<div class="bg-overlay"></div>
+
+<div class="top-utility-bar">
     <div id="google_translate_element"></div>
 </div>
 
-<header>
-  <a href="#accueil" class="logo-container">
+<header id="main-nav">
+  <a href="#accueil" class="brand-group">
     <img src="images/LogoPN.jpg" alt="Logo LSJ Bénin">
     <h1>LSJ Bénin</h1>
   </a>
@@ -260,121 +396,118 @@
   </nav>
 </header>
 
-<section class="hero" id="accueil">
-  <div class="badge">De la Production à l'Assiette</div>
-  <h2>LSJ BÉNIN</h2>
-  <p>Construire l'autosuffisance alimentaire à Dogoudo par l'innovation agroécologique et la force du modèle Songhaï.</p>
+<section id="accueil" class="hero-container">
+  <div class="hero-tagline">De la Production à l'Assiette</div>
+  <h2>La Passion de la Terre</h2>
+  <p>Une exploitation agroécologique de référence à Dogoudo (Hêvié), alliant techniques ancestrales Songhaï et stratégies durables.</p>
 </section>
 
-<section id="expertise">
-  <div class="content-box">
-    <div class="section-header">
-      <h2 class="section-title">Nos Domaines d'Action</h2>
-      <p style="font-size: 1.2rem; color: #666; max-width: 800px; margin: 30px auto 0;">
-        Une exploitation intégrée où chaque pôle de production contribue à l'équilibre naturel du sol et à la qualité des produits.
+<section id="expertise" class="section-wrapper">
+  <div class="glass-inner-card">
+    <div class="title-block">
+      <h2>Nos Domaines d'Excellence</h2>
+      <p style="font-size: 1.3rem; color: var(--text-muted); max-width: 800px; margin: 30px auto 0;">
+        Nous maîtrisons l'ensemble du cycle biologique pour garantir des produits d'une pureté exceptionnelle.
       </p>
     </div>
     
-    <div class="grid-expertise">
-      <div class="card-expertise">
-        <span class="icon-large">🌿</span>
-        <h3>Maraîchage Durable</h3>
-        <p>Production de tomates cœur de bœuf, laitues, carottes et piments. Nous cultivons des variétés saines, sans aucun intrant chimique, pour garantir des saveurs authentiques.</p>
+    <div class="expertise-grid">
+      <div class="expert-card">
+        <h3>Maraîchage Biologique</h3>
+        <p>Cultivés sur des sols régénérés, nos tomates cœur de bœuf, laitues croquantes, piments doux et carottes sont le reflet d'une terre respectée, sans pesticides ni engrais de synthèse.</p>
       </div>
       
-      <div class="card-expertise">
-        <span class="icon-large">🐓</span>
-        <h3>Élevage à Haute Valeur</h3>
-        <p>Spécialisation dans les poulets Goliath, pintades, cailles et lapins. Notre élevage respecte le cycle naturel de croissance pour une chair d'exception.</p>
+      <div class="expert-card">
+        <h3>Élevage Diversifié</h3>
+        <p>Notre savoir-faire avicole et cunicole s'étend des poulets Goliath aux pintades, cailles et lapins. Chaque animal est nourri avec des céréales locales pour une qualité gustative supérieure.</p>
       </div>
       
-      <div class="card-expertise">
-        <span class="icon-large">♻️</span>
-        <h3>Système Circulaire</h3>
-        <p>Rien ne se perd. La biomasse issue de nos élevages devient le fertilisant naturel de nos terres, assurant une autonomie complète à l'exploitation.</p>
+      <div class="expert-card">
+        <h3>Autonomie Circulaire</h3>
+        <p>À LSJ Bénin, le déchet est une ressource. Nous transformons nos litières animales en compost premium, fertilisant ainsi nos cultures maraîchères dans un cycle 100% naturel.</p>
       </div>
 
-      <div class="card-expertise">
-        <span class="icon-large">🤝</span>
-        <h3>Partage de Savoir</h3>
-        <p>Nous formons les jeunes agri-preneurs aux techniques de l'agroécologie. Notre ferme est un lieu d'apprentissage pour bâtir le Bénin de demain.</p>
+      <div class="expert-card">
+        <h3>Formation Jeunesse</h3>
+        <p>Notre mission est sociale : nous formons la relève agricole béninoise aux méthodes de gestion durable pour favoriser l'émergence d'une nouvelle génération d'agri-preneurs.</p>
       </div>
 
-      <div class="card-expertise">
-        <span class="icon-large">🏗️</span>
-        <h3>Réseau Coopératif</h3>
-        <p>Notre but est la structuration de coopératives locales pour mutualiser les outils de production et sécuriser les revenus des agriculteurs.</p>
+      <div class="expert-card">
+        <h3>Logistique & Coopérative</h3>
+        <p>Nous structurons des réseaux de distribution directe pour garantir la fraîcheur. Notre modèle de coopérative sécurise les débouchés pour tous les petits producteurs locaux.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section id="vision">
-  <div class="content-box">
-    <div class="section-header">
-      <h2 class="section-title">Notre Vision & Engagement</h2>
+<section id="vision" class="section-wrapper">
+  <div class="glass-inner-card">
+    <div class="title-block">
+      <h2>L'Histoire de LSJ Bénin</h2>
     </div>
     
-    <div class="vision-flex">
-      <div class="vision-text">
-        <p>Le projet <strong>LSJ Bénin (Les Serveurs de Jérusalem)</strong> est porté par <strong>Jude Gbetoho</strong>. Fort de sa formation au prestigieux <strong>Centre Songhaï</strong>, il met en œuvre une agriculture de précision qui respecte la terre et les hommes.</p>
+    <div class="vision-container">
+      <div class="vision-content">
+        <div class="vision-text">
+          <p>L'aventure <strong>LSJ Bénin</strong> est portée par la détermination de <strong>Jude Gbetoho</strong>. Issu d'un parcours exemplaire au sein du <strong>Centre Songhaï</strong>, Jude a su transformer sa passion en un centre de production moderne à Dogoudo.</p>
+          
+          <p>Grâce aux échanges stratégiques constants avec son conseiller <strong>Michel Quinones</strong>, Jude a bâti par ses propres moyens une infrastructure capable de répondre aux défis alimentaires du Bénin de demain.</p>
+          
+          <div class="highlight-quote">
+            "Notre ambition est d'offrir le meilleur de la terre, de la production à l'assiette, tout en restant fidèles à nos valeurs de solidarité et de respect environnemental."
+          </div>
+        </div>
         
-        <p>En collaboration stratégique avec son conseiller <strong>Michel Quinones</strong>, Jude développe par ses propres moyens une infrastructure progressive d'autosuffisance à Dogoudo.</p>
-        
-        <div class="quote-box">
-          "Notre ambition est de prouver que l'excellence agricole est possible au Bénin par la formation, la rigueur et le respect des cycles naturels."
+        <div class="stats-visual">
+          <div class="expert-card" style="margin-bottom: 20px; text-align: center; border-left: none; border-bottom: 12px solid var(--primary);">
+            <h4 style="font-size: 3.5rem; color: var(--secondary); font-weight: 900;">100%</h4>
+            <p>Bio & Naturel</p>
+          </div>
+          <div class="expert-card" style="text-align: center; border-left: none; border-bottom: 12px solid var(--primary);">
+            <h4 style="font-size: 3.5rem; color: var(--secondary); font-weight: 900;">Circuit</h4>
+            <p>Court & Direct</p>
+          </div>
         </div>
       </div>
       
-      
-
-      <div class="grid-expertise">
-        <div class="card-expertise" style="border-left-color: var(--primary);">
-          <h4 style="font-size: 2.5rem; color: var(--secondary);">100%</h4>
-          <p>Bio & Naturel</p>
-        </div>
-        <div class="card-expertise" style="border-left-color: var(--primary);">
-          <h4 style="font-size: 2.5rem; color: var(--secondary);">Local</h4>
-          <p>Engagement à Hêvié</p>
-        </div>
-      </div>
     </div>
   </div>
 </section>
 
-<section id="tourisme">
-  <div class="content-box">
-    <div class="section-header">
-      <h2 class="section-title">🌍 Agrotourisme à Dogoudo</h2>
-      <p style="margin-top:20px;">Situé dans l'arrondissement de Hêvié, notre site accueille les visiteurs curieux de découvrir une agriculture moderne et durable.</p>
+<section id="tourisme" class="section-wrapper">
+  <div class="glass-inner-card">
+    <div class="title-block">
+      <h2>🌍 Immersion à Hêvié</h2>
+      <p style="margin-top:20px;">Notre ferme-école à Dogoudo est un espace de découverte et de partage. Venez apprendre et consommer frais.</p>
     </div>
     
-    <div class="map-wrapper">
+    <div class="map-frame-container">
       <iframe 
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15860!2d2.28!3d6.43!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMjUnNDguMCJOIDLCsDE2JzQ4LjAiRQ!5e0!3m2!1sfr!2sbj!4v1234567895" 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15860!2d2.28!3d6.43!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMjUnNDguMCJOIDLCsDE2JzQ4LjAiRQ!5e0!3m2!1sfr!2sbj!4v1234567897" 
         allowfullscreen="" 
-        loading="lazy">
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
       </iframe>
     </div>
   </div>
 </section>
 
-<section id="contact">
-  <div class="content-box">
-    <div class="section-header">
-      <h2 class="section-title">Contactez-nous</h2>
+<section id="contact" class="section-wrapper">
+  <div class="glass-inner-card">
+    <div class="title-block">
+      <h2>Prendre Contact</h2>
     </div>
     
-    <div class="contact-info-grid">
-      <div class="contact-card">
+    <div class="contact-grid">
+      <div class="contact-box">
         <h4>📍 Adresse</h4>
-        <p>Quartier Dogoudo, Arr. Hêvié,<br>Abomey-Calavi, Bénin</p>
+        <p>Quartier Dogoudo,<br>Arrondissement de Hêvié,<br>Abomey-Calavi, Bénin</p>
       </div>
-      <div class="contact-card">
+      <div class="contact-box">
         <h4>📞 WhatsApp / Tel</h4>
         <p><a href="tel:+229160986656">+229 01 60 98 66 56</a></p>
       </div>
-      <div class="contact-card">
+      <div class="contact-box">
         <h4>✉️ Email</h4>
         <p>gbetohopelaurg@gmail.com</p>
       </div>
@@ -382,48 +515,48 @@
   </div>
 </section>
 
-<div class="social-float-bar">
-  <a href="https://wa.me/229160986656" class="btn-circle btn-whatsapp" title="WhatsApp">💬</a>
-  <a href="https://www.tiktok.com/@votre_compte" class="btn-circle btn-tiktok" title="TikTok">📱</a>
+<div class="dock-actions">
+  <a href="https://wa.me/229160986656" class="btn-action wa-btn" title="Contacter sur WhatsApp">💬</a>
+  <a href="https://www.tiktok.com/@votre_compte" class="btn-action tk-btn" title="Suivre sur TikTok">📱</a>
 </div>
 
-<button class="audio-toggle" onclick="toggleAudio()">
-  🎵 MUSIQUE : <span id="status">OFF</span>
+<button class="music-control" id="audioToggle">
+  <span id="music-icon">🎵</span> MUSIQUE : <span id="music-status">OFF</span>
 </button>
 
-<audio id="bg-player" loop>
+<audio id="bg-audio" loop>
   <source src="audio/afro-background-01.mp3" type="audio/mp3">
 </audio>
 
 <footer>
-  <div class="footer-content">
+  <div class="footer-main">
     <div class="footer-col">
       <h5>LSJ Bénin</h5>
-      <p>L'excellence agricole au service du développement local. Un projet visionnaire porté par Jude Gbetoho et conseillé par Michel Quinones.</p>
-      <p style="margin-top: 20px; color: white;">De la Production à l'Assiette.</p>
+      <p>L'excellence agricole au service du développement souverain. Un projet d'autosuffisance progressive porté par Jude Gbetoho et accompagné par Michel Quinones.</p>
+      <p style="margin-top: 30px; font-weight: bold; color: white; letter-spacing: 2px;">DE LA PRODUCTION À L'ASSIETTE.</p>
     </div>
     <div class="footer-col">
-      <h5>Navigation</h5>
+      <h5>Menu Rapide</h5>
       <a href="#accueil">Accueil</a>
-      <a href="#expertise">Expertises</a>
-      <a href="#vision">Vision</a>
+      <a href="#expertise">Nos Expertises</a>
+      <a href="#vision">Notre Vision</a>
       <a href="#contact">Contact</a>
     </div>
     <div class="footer-col">
-      <h5>Suivez-nous</h5>
-      <a href="#">Facebook</a>
-      <a href="#">Instagram</a>
-      <a href="#">TikTok</a>
+      <h5>Langues & Accès</h5>
+      <p style="font-size: 0.9rem; margin-bottom: 20px;">Utilisez le sélecteur en haut de page pour traduire en Espagnol ou Anglais.</p>
+      <a href="#">Mentions Légales</a>
+      <a href="#">Politique de Confidentialité</a>
     </div>
   </div>
   
-  <div style="border-top: 1px solid #222; padding-top: 40px;">
-    <p>© 2026 LSJ Bénin – Les Serveurs de Jérusalem. Direction Stratégique par Michel Quinones.</p>
+  <div class="copyright">
+    <p>© 2026 LSJ Bénin – Les Serveurs de Jérusalem. Direction Stratégique par Michel.</p>
   </div>
 </footer>
 
 <script type="text/javascript">
-  // CONFIGURATION GOOGLE TRANSLATE (FR, EN, ES)
+  // CONFIGURATION TRADUCTION GOOGLE (FR, EN, ES)
   function googleTranslateElementInit() {
     new google.translate.TranslateElement({
       pageLanguage: 'fr', 
@@ -433,19 +566,34 @@
     }, 'google_translate_element');
   }
 
-  // GESTION AUDIO
-  const audio = document.getElementById("bg-player");
-  const statusLabel = document.getElementById("status");
+  // GESTION AUDIO PRESTIGE
+  const audioBtn = document.getElementById("audioToggle");
+  const audioPlayer = document.getElementById("bg-audio");
+  const statusTxt = document.getElementById("music-status");
   
-  function toggleAudio() {
-    if (audio.paused) {
-      audio.play();
-      statusLabel.innerText = "ON";
+  audioBtn.addEventListener("click", () => {
+    if (audioPlayer.paused) {
+      audioPlayer.play();
+      statusTxt.innerText = "ON";
+      audioBtn.style.color = "var(--secondary)";
     } else {
-      audio.pause();
-      statusLabel.innerText = "OFF";
+      audioPlayer.pause();
+      statusTxt.innerText = "OFF";
+      audioBtn.style.color = "var(--primary)";
     }
-  }
+  });
+
+  // EFFET HEADER SCROLL
+  window.addEventListener("scroll", () => {
+    const header = document.getElementById("main-nav");
+    if (window.scrollY > 100) {
+      header.style.padding = "10px 8%";
+      header.style.background = "rgba(255,255,255,0.99)";
+    } else {
+      header.style.padding = "15px 8%";
+      header.style.background = "var(--bg-glass)";
+    }
+  });
 </script>
 <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
