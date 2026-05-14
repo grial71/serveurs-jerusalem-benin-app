@@ -35,6 +35,7 @@
       --radius-md: 25px;
       --radius-lg: 50px;
     }
+
     * { box-sizing: border-box; margin: 0; padding: 0; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
     html { scroll-behavior: smooth; font-size: 16px; }
     body { font-family: 'Poppins', sans-serif; color: var(--text-main); background-color: #f1f5f9; line-height: 1.8; overflow-x: hidden; }
@@ -197,6 +198,91 @@
     }
 
     /* ========================================
+       DERNIÈRES ÉVOLUTIONS
+       ======================================== */
+    .update-card {
+      background: linear-gradient(135deg, rgba(255,255,255,0.98), rgba(240,253,244,0.98));
+    }
+    .update-layout {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 40px;
+      align-items: center;
+    }
+    .update-main {
+      background: white;
+      padding: 35px;
+      border-radius: 28px;
+      box-shadow: var(--shadow-lg);
+      border-left: 8px solid var(--secondary);
+    }
+    .update-badge {
+      display: inline-block;
+      background: var(--accent);
+      color: white;
+      padding: 8px 18px;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      font-weight: 800;
+      margin-bottom: 18px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .update-main h3 {
+      font-family: 'Playfair Display', serif;
+      color: var(--primary);
+      font-size: 2rem;
+      margin-bottom: 18px;
+      line-height: 1.2;
+    }
+    .update-main p { color: var(--text-muted); margin-bottom: 22px; }
+    .update-list { list-style: none; margin-bottom: 28px; }
+    .update-list li {
+      background: #f0fdf4;
+      margin-bottom: 10px;
+      padding: 12px 15px;
+      border-radius: 14px;
+      font-weight: 600;
+      color: #1f2937;
+    }
+    .update-btn {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--secondary), var(--secondary-dark));
+      color: white;
+      text-decoration: none;
+      padding: 14px 28px;
+      border-radius: 40px;
+      font-weight: 800;
+      box-shadow: 0 10px 25px rgba(33,136,56,0.25);
+      transition: all 0.3s ease;
+    }
+    .update-btn:hover { transform: translateY(-3px); box-shadow: 0 18px 35px rgba(33,136,56,0.35); }
+    .update-gallery {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+    .update-gallery img {
+      width: 100%;
+      height: 230px;
+      object-fit: cover;
+      border-radius: 22px;
+      box-shadow: var(--shadow-md);
+      transition: all 0.4s ease;
+      background: #e2e8f0;
+    }
+    .update-gallery img:hover { transform: scale(1.04); box-shadow: var(--shadow-lg); }
+    .update-note {
+      margin-top: 28px;
+      background: linear-gradient(135deg, rgba(0,74,153,0.08), rgba(33,136,56,0.08));
+      border-radius: 22px;
+      padding: 22px 26px;
+      border-left: 6px solid var(--accent);
+      color: #334155;
+      font-weight: 600;
+    }
+
+    /* ========================================
        EXPERTISE
        ======================================== */
     .expertise-grid {
@@ -209,9 +295,7 @@
       opacity: 0; transform: translateY(30px);
     }
     .expert-card.visible { opacity: 1; transform: translateY(0); }
-    .expert-card:hover {
-      transform: translateY(-12px); box-shadow: var(--shadow-lg);
-    }
+    .expert-card:hover { transform: translateY(-12px); box-shadow: var(--shadow-lg); }
     .expert-card::before {
       content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
       background: radial-gradient(circle, rgba(40,167,69,0.06) 0%, transparent 70%);
@@ -223,9 +307,7 @@
       color: var(--primary); font-size: 1.5rem; margin-bottom: 15px;
       font-family: 'Playfair Display', serif; position: relative; z-index: 1;
     }
-    .expert-card p {
-      font-size: 1rem; color: var(--text-muted); position: relative; z-index: 1; line-height: 1.7;
-    }
+    .expert-card p { font-size: 1rem; color: var(--text-muted); position: relative; z-index: 1; line-height: 1.7; }
 
     /* ========================================
        VISION
@@ -264,24 +346,26 @@
     .partners-intro {
       background: linear-gradient(135deg, var(--primary), var(--secondary));
       border-radius: var(--radius-lg); padding: 50px 40px; text-align: center;
-      color: white; margin-bottom: 50px; position: relative; overflow: hidden;
+      color: white; margin-bottom: 35px; position: relative; overflow: hidden;
     }
     .partners-intro::before {
       content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
       background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
     }
-    .partners-intro h3 {
-      font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 15px;
-      position: relative; z-index: 1;
-    }
-    .partners-intro p {
-      font-size: 1.05rem; opacity: 0.95; max-width: 600px; margin: 0 auto;
-      position: relative; z-index: 1; line-height: 1.7;
-    }
+    .partners-intro h3 { font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 15px; position: relative; z-index: 1; }
+    .partners-intro p { font-size: 1.05rem; opacity: 0.95; max-width: 600px; margin: 0 auto; position: relative; z-index: 1; line-height: 1.7; }
 
-    .partner-showcase {
-      display: grid; grid-template-columns: 1fr; gap: 40px; max-width: 900px; margin: 0 auto;
+    /* Recherche partenaire */
+    .search-partner-box { text-align: center; margin-bottom: 40px; }
+    .search-partner-box input {
+      width: 100%; max-width: 620px; padding: 16px 22px;
+      border-radius: 50px; border: 2px solid #e2e8f0; font-size: 1rem;
+      outline: none; transition: all 0.3s ease; box-shadow: var(--shadow-sm);
+      font-family: 'Poppins', sans-serif;
     }
+    .search-partner-box input:focus { border-color: var(--secondary); box-shadow: 0 0 18px rgba(33, 136, 56, 0.25); }
+
+    .partner-showcase { display: grid; grid-template-columns: 1fr; gap: 40px; max-width: 900px; margin: 0 auto; }
     .partner-featured {
       background: white; border-radius: 30px; overflow: hidden;
       box-shadow: 0 15px 50px rgba(0,0,0,0.1); transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
@@ -289,11 +373,7 @@
       opacity: 0; transform: translateY(40px);
     }
     .partner-featured.visible { opacity: 1; transform: translateY(0); }
-    .partner-featured:hover {
-      transform: translateY(-10px) scale(1.01);
-      box-shadow: 0 30px 60px rgba(0,0,0,0.15);
-      border-color: var(--secondary);
-    }
+    .partner-featured:hover { transform: translateY(-10px) scale(1.01); box-shadow: 0 30px 60px rgba(0,0,0,0.15); border-color: var(--secondary); }
     .partner-featured-header {
       background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
       padding: 50px 30px 70px; text-align: center; position: relative; overflow: hidden;
@@ -308,10 +388,7 @@
       position: relative; z-index: 2; transition: transform 0.5s ease;
     }
     .partner-featured:hover .partner-featured-logo { transform: scale(1.08) rotate(3deg); }
-    .partner-featured-name {
-      color: white; font-family: 'Playfair Display', serif; font-size: 2rem;
-      margin-top: 20px; position: relative; z-index: 2;
-    }
+    .partner-featured-name { color: white; font-family: 'Playfair Display', serif; font-size: 2rem; margin-top: 20px; position: relative; z-index: 2; }
     .partner-featured-badge {
       display: inline-block; background: var(--accent); color: white;
       padding: 8px 25px; border-radius: 50px; font-size: 0.75rem;
@@ -319,28 +396,12 @@
       margin-top: 12px; position: relative; z-index: 2; box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     }
     .partner-featured-body { padding: 35px 40px; position: relative; }
-    .partner-featured-desc {
-      background: #f8fafc; padding: 25px; border-radius: 18px;
-      margin-bottom: 25px; border-left: 5px solid var(--accent);
-    }
-    .partner-featured-desc h4 {
-      color: var(--primary); font-size: 0.9rem; text-transform: uppercase;
-      letter-spacing: 1.5px; margin-bottom: 10px; font-weight: 700;
-    }
-    .partner-featured-desc p {
-      color: var(--text-muted); font-size: 1.05rem; line-height: 1.7;
-    }
-    .partner-featured-services {
-      display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 25px;
-    }
-    .service-tag {
-      background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
-      color: var(--secondary-dark); padding: 8px 18px; border-radius: 25px;
-      font-size: 0.85rem; font-weight: 600;
-    }
-    .partner-featured-contact {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 15px;
-    }
+    .partner-featured-desc { background: #f8fafc; padding: 25px; border-radius: 18px; margin-bottom: 25px; border-left: 5px solid var(--accent); }
+    .partner-featured-desc h4 { color: var(--primary); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 10px; font-weight: 700; }
+    .partner-featured-desc p { color: var(--text-muted); font-size: 1.05rem; line-height: 1.7; }
+    .partner-featured-services { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 25px; }
+    .service-tag { background: linear-gradient(135deg, #e8f5e9, #c8e6c9); color: var(--secondary-dark); padding: 8px 18px; border-radius: 25px; font-size: 0.85rem; font-weight: 600; }
+    .partner-featured-contact { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
     .btn-whatsapp-lg {
       display: flex; align-items: center; justify-content: center; gap: 10px;
       padding: 18px; background: linear-gradient(135deg, #25D366, #128C7E);
@@ -349,117 +410,52 @@
       position: relative; overflow: hidden; border: none; cursor: pointer;
       font-family: 'Poppins', sans-serif; grid-column: 1 / -1;
     }
-    .btn-whatsapp-lg::before {
-      content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-      transition: left 0.6s ease;
-    }
+    .btn-whatsapp-lg::before { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent); transition: left 0.6s ease; }
     .btn-whatsapp-lg:hover::before { left: 100%; }
     .btn-whatsapp-lg:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(37, 211, 102, 0.3); }
-    .btn-call {
-      display: flex; align-items: center; justify-content: center; gap: 8px;
-      padding: 15px; background: var(--primary); color: white;
-      text-decoration: none; border-radius: 12px; font-weight: 700;
-      font-size: 0.95rem; transition: all 0.3s ease; border: none;
-      font-family: 'Poppins', sans-serif;
-    }
+    .btn-call { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 15px; background: var(--primary); color: white; text-decoration: none; border-radius: 12px; font-weight: 700; font-size: 0.95rem; transition: all 0.3s ease; border: none; font-family: 'Poppins', sans-serif; }
     .btn-call:hover { background: var(--primary-light); transform: translateY(-2px); }
 
-    .partner-cta-box {
-      text-align: center; margin-top: 60px; padding: 50px 40px;
-      background: linear-gradient(135deg, var(--dark-deep), #0f172a);
-      border-radius: 25px; color: white; position: relative; overflow: hidden;
-    }
-    .partner-cta-box h3 {
-      font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 15px;
-      position: relative; z-index: 1;
-    }
-    .partner-cta-box p {
-      font-size: 1rem; margin-bottom: 25px; opacity: 0.9; max-width: 550px;
-      margin-left: auto; margin-right: auto; position: relative; z-index: 1; line-height: 1.7;
-    }
-    .btn-cta {
-      display: inline-block; padding: 16px 40px; background: white; color: var(--primary);
-      text-decoration: none; border-radius: 50px; font-weight: 800; font-size: 0.95rem;
-      transition: all 0.3s ease; box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-      position: relative; z-index: 1; border: none; cursor: pointer;
-      font-family: 'Poppins', sans-serif;
-    }
+    .partner-cta-box { text-align: center; margin-top: 60px; padding: 50px 40px; background: linear-gradient(135deg, var(--dark-deep), #0f172a); border-radius: 25px; color: white; position: relative; overflow: hidden; }
+    .partner-cta-box h3 { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 15px; position: relative; z-index: 1; }
+    .partner-cta-box p { font-size: 1rem; margin-bottom: 25px; opacity: 0.9; max-width: 550px; margin-left: auto; margin-right: auto; position: relative; z-index: 1; line-height: 1.7; }
+    .btn-cta { display: inline-block; padding: 16px 40px; background: white; color: var(--primary); text-decoration: none; border-radius: 50px; font-weight: 800; font-size: 0.95rem; transition: all 0.3s ease; box-shadow: 0 10px 30px rgba(0,0,0,0.2); position: relative; z-index: 1; border: none; cursor: pointer; font-family: 'Poppins', sans-serif; }
     .btn-cta:hover { transform: translateY(-4px) scale(1.03); box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
 
     /* ========================================
        AGROTOURISME
        ======================================== */
-    .map-frame-container {
-      border-radius: var(--radius-md); overflow: hidden; border: 10px solid white;
-      box-shadow: var(--shadow-lg); height: 450px; width: 100%; margin-top: 35px;
-    }
+    .map-frame-container { border-radius: var(--radius-md); overflow: hidden; border: 10px solid white; box-shadow: var(--shadow-lg); height: 450px; width: 100%; margin-top: 35px; }
     .map-frame-container iframe { width: 100%; height: 100%; border: none; }
 
     /* ========================================
        CONTACT
        ======================================== */
-    .contact-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 25px;
-    }
-    .contact-box {
-      padding: 40px 25px; text-align: center; border-radius: var(--radius-md);
-      background: #f8fafc; transition: all 0.3s ease; border: 2px solid transparent;
-      opacity: 0; transform: translateY(20px);
-    }
+    .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 25px; }
+    .contact-box { padding: 40px 25px; text-align: center; border-radius: var(--radius-md); background: #f8fafc; transition: all 0.3s ease; border: 2px solid transparent; opacity: 0; transform: translateY(20px); }
     .contact-box.visible { opacity: 1; transform: translateY(0); }
-    .contact-box:hover {
-      background: white; box-shadow: var(--shadow-md); border-color: var(--secondary);
-      transform: translateY(-5px);
-    }
+    .contact-box:hover { background: white; box-shadow: var(--shadow-md); border-color: var(--secondary); transform: translateY(-5px); }
     .contact-icon { font-size: 2.5rem; margin-bottom: 15px; display: block; }
     .contact-box h4 { font-size: 1.3rem; color: var(--primary); margin-bottom: 12px; }
     .contact-box p { color: var(--text-muted); line-height: 1.8; font-size: 0.95rem; }
-    .contact-box a {
-      color: var(--secondary); font-weight: 800; text-decoration: none;
-      font-size: 1.15rem; transition: color 0.3s;
-    }
+    .contact-box a { color: var(--secondary); font-weight: 800; text-decoration: none; font-size: 1.15rem; transition: color 0.3s; }
     .contact-box a:hover { color: var(--primary); }
 
     /* ========================================
        BOUTONS FLOTTANTS
        ======================================== */
-    .dock-actions {
-      position: fixed; bottom: 30px; right: 30px;
-      display: flex; flex-direction: column; gap: 15px; z-index: 5000;
-    }
-    .btn-action {
-      width: 60px; height: 60px; border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      color: white; text-decoration: none; font-size: 1.7rem;
-      box-shadow: var(--shadow-lg); transition: var(--transition-med);
-      cursor: pointer; border: none; position: relative;
-    }
-    .btn-action::after {
-      content: attr(data-label); position: absolute; right: 75px;
-      background: var(--dark-deep); color: white; padding: 7px 14px;
-      border-radius: 10px; font-size: 0.75rem; font-weight: 600;
-      white-space: nowrap; opacity: 0; transform: translateX(10px);
-      transition: all 0.3s ease; pointer-events: none;
-    }
+    .dock-actions { position: fixed; bottom: 30px; right: 30px; display: flex; flex-direction: column; gap: 15px; z-index: 5000; }
+    .btn-action { width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; text-decoration: none; font-size: 1.7rem; box-shadow: var(--shadow-lg); transition: var(--transition-med); cursor: pointer; border: none; position: relative; }
+    .btn-action::after { content: attr(data-label); position: absolute; right: 75px; background: var(--dark-deep); color: white; padding: 7px 14px; border-radius: 10px; font-size: 0.75rem; font-weight: 600; white-space: nowrap; opacity: 0; transform: translateX(10px); transition: all 0.3s ease; pointer-events: none; }
     .btn-action:hover::after { opacity: 1; transform: translateX(0); }
     .wa-btn { background: linear-gradient(135deg, #25D366, #128C7E); }
     .tk-btn { background: linear-gradient(135deg, #000000, #333333); }
     .btn-action:hover { transform: scale(1.15) rotate(8deg); }
 
-    .music-control {
-      position: fixed; bottom: 30px; left: 30px; background: white; border: none;
-      padding: 14px 28px; border-radius: 60px; cursor: pointer; font-weight: 800;
-      box-shadow: var(--shadow-lg); z-index: 5000; color: var(--primary);
-      font-size: 0.85rem; display: flex; align-items: center; gap: 10px;
-      transition: all 0.3s ease; font-family: 'Poppins', sans-serif;
-    }
+    .music-control { position: fixed; bottom: 30px; left: 30px; background: white; border: none; padding: 14px 28px; border-radius: 60px; cursor: pointer; font-weight: 800; box-shadow: var(--shadow-lg); z-index: 5000; color: var(--primary); font-size: 0.85rem; display: flex; align-items: center; gap: 10px; transition: all 0.3s ease; font-family: 'Poppins', sans-serif; }
     .music-control:hover { transform: translateY(-3px); box-shadow: 0 15px 35px rgba(0,0,0,0.15); }
     .music-control.playing { color: var(--secondary); animation: pulse-music 1.5s infinite; }
-    @keyframes pulse-music {
-      0%, 100% { box-shadow: 0 0 0 0 rgba(33, 136, 56, 0.4); }
-      50% { box-shadow: 0 0 0 12px rgba(33, 136, 56, 0); }
-    }
+    @keyframes pulse-music { 0%, 100% { box-shadow: 0 0 0 0 rgba(33, 136, 56, 0.4); } 50% { box-shadow: 0 0 0 12px rgba(33, 136, 56, 0); } }
 
     /* ========================================
        FOOTER
@@ -478,13 +474,7 @@
     /* ========================================
        NOTIFICATION
        ======================================== */
-    .notification {
-      position: fixed; top: 100px; right: -400px; background: var(--secondary);
-      color: white; padding: 16px 28px; border-radius: 15px; font-weight: 700;
-      z-index: 100000; box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-      transition: right 0.5s cubic-bezier(0.4, 0, 0.2, 1); max-width: 350px;
-      line-height: 1.5; font-size: 0.95rem;
-    }
+    .notification { position: fixed; top: 100px; right: -400px; background: var(--secondary); color: white; padding: 16px 28px; border-radius: 15px; font-weight: 700; z-index: 100000; box-shadow: 0 10px 30px rgba(0,0,0,0.2); transition: right 0.5s cubic-bezier(0.4, 0, 0.2, 1); max-width: 350px; line-height: 1.5; font-size: 0.95rem; }
     .notification.show { right: 20px; }
 
     /* ========================================
@@ -501,6 +491,7 @@
       .footer-main { grid-template-columns: 1fr 1fr; gap: 35px; }
       header { padding: 12px 5%; }
       .partner-featured-contact { grid-template-columns: 1fr; }
+      .update-layout { grid-template-columns: 1fr; }
     }
     @media (max-width: 768px) {
       header { flex-direction: column; gap: 12px; padding: 10px 5%; }
@@ -521,6 +512,7 @@
       .partners-intro { padding: 35px 25px; }
       .partners-intro h3 { font-size: 1.6rem; }
       .partner-cta-box { padding: 35px 25px; }
+      .update-gallery img { height: 180px; }
     }
     @media (max-width: 480px) {
       .brand-group h1 { font-size: 1.3rem; }
@@ -531,6 +523,8 @@
       .expertise-grid { grid-template-columns: 1fr; }
       .partner-featured-contact { grid-template-columns: 1fr; }
       .btn-whatsapp-lg { grid-column: 1; }
+      .update-gallery { grid-template-columns: 1fr; }
+      .update-main { padding: 25px; }
     }
   </style>
 <base target="_blank">
@@ -576,6 +570,7 @@
   <nav>
     <ul>
       <li><a href="#accueil" class="active">Accueil</a></li>
+      <li><a href="#actualites">Évolution</a></li>
       <li><a href="#expertise">Expertise</a></li>
       <li><a href="#vision">Notre Vision</a></li>
       <li><a href="#partenaires">Partenaires</a></li>
@@ -592,8 +587,52 @@
   <div class="hero-tagline">De la Production à l'Assiette</div>
   <h2>La Passion de la Terre</h2>
   <p>Une exploitation agroécologique de référence à Dogoudo (Hêvié), alliant techniques ancestrales Songhaï et stratégies durables pour l'excellence agricole béninoise.</p>
-  <div class="hero-scroll" onclick="document.getElementById('expertise').scrollIntoView({behavior:'smooth'})">
+  <div class="hero-scroll" onclick="document.getElementById('actualites').scrollIntoView({behavior:'smooth'})">
     <span></span>
+  </div>
+</section>
+
+<!-- ========================================
+     DERNIÈRES ÉVOLUTIONS
+     ======================================== -->
+<section id="actualites" class="section-wrapper">
+  <div class="glass-inner-card update-card">
+    <div class="title-block">
+      <h2>🌱 Dernières Évolutions du Projet</h2>
+      <p>Suivez les avancées progressives de LSJ Bénin sur le terrain : élevage, aménagement, production locale et mise en relation avec de futurs partenaires.</p>
+    </div>
+
+    <div class="update-layout">
+      <div class="update-main">
+        <span class="update-badge">Mai 2026 • Dogoudo – Hêvié</span>
+        <h3>🐓 L’élevage avicole continue de progresser</h3>
+        <p>
+          Jude poursuit le développement de son espace agricole avec une amélioration progressive des installations,
+          une alimentation naturelle des volailles et les premières pontes observées sur le terrain.
+        </p>
+
+        <ul class="update-list">
+          <li>🥚 Premières pontes et espaces de nidification</li>
+          <li>🐔 Élevage en croissance progressive</li>
+          <li>🌿 Alimentation naturelle et récupération locale</li>
+          <li>🏡 Aménagement simple des abris</li>
+          <li>🤝 Premiers échanges avec des partenaires intéressés</li>
+        </ul>
+
+        <a href="#partenaires" class="update-btn">Découvrir le réseau LSJ</a>
+      </div>
+
+      <div class="update-gallery">
+        <img src="images/evolution-poules-01.png" alt="Évolution élevage LSJ Bénin">
+        <img src="images/evolution-poules-02.png" alt="Premières pontes LSJ Bénin">
+        <img src="images/evolution-poules-03.png" alt="Abris élevage LSJ Bénin">
+        <img src="images/evolution-poules-04.png" alt="Alimentation naturelle des volailles LSJ Bénin">
+      </div>
+    </div>
+
+    <div class="update-note">
+      ✨ Chaque nouvelle action renforce la vision du projet : une agriculture locale, autonome, durable et au service de la communauté.
+    </div>
   </div>
 </section>
 
@@ -678,15 +717,23 @@
       <p>Découvrez les artisans et entrepreneurs de confiance partenaires de <strong>LSJ Bénin - Les Serveurs de Jérusalem</strong>. Chaque contact passé via cette page soutient notre mission.</p>
     </div>
 
-    <!-- Intro Partenaires -->
     <div class="partners-intro">
       <h3>Réseau Les Serveurs de Jérusalem</h3>
       <p>Nous mettons en avant les meilleurs commerçants locaux. En passant par notre plateforme, vous garantissez la traçabilité et soutenez l'économie locale.</p>
     </div>
 
-    <!-- Partenaire Featured : Les Saveurs de Nad -->
+    <div class="search-partner-box">
+      <input
+        type="text"
+        id="searchPartner"
+        placeholder="🔍 Rechercher par type de commerce : restaurant, traiteur, légumes, artisan..."
+        onkeyup="filterPartners()"
+        aria-label="Rechercher un partenaire LSJ par type de commerce"
+      >
+    </div>
+
     <div class="partner-showcase">
-      <article class="partner-featured">
+      <article class="partner-featured" data-category="restaurant traiteur cuisine béninoise produits frais plats à emporter légumes commerce alimentation">
         <div class="partner-featured-header">
           <img src="images/logo-saveurs-nad.png" alt="Les Saveurs de Nad" class="partner-featured-logo">
           <h3 class="partner-featured-name">Les Saveurs de Nad</h3>
@@ -705,8 +752,8 @@
             <span class="service-tag">📍 Hêvié / Abomey-Calavi</span>
           </div>
           <div class="partner-featured-contact">
-            <a href="https://wa.me/229XXXXXXXX?text=Bonjour%20Les%20Saveurs%20de%20Nad%2C%20je%20vous%20contacte%20depuis%20la%20page%20*LSJ%20B%C3%A9nin%20-%20Les%20Serveurs%20de%20J%C3%A9rusalem*%20%F0%9F%8C%9F%0A%0AJe%20suis%20int%C3%A9ress%C3%A9%20par%20votre%20restaurant%20et%20je%20souhaite%20en%20savoir%20plus%20ou%20r%C3%A9server%20une%20table." 
-               class="btn-whatsapp-lg" 
+            <a href="https://wa.me/229XXXXXXXX?text=Bonjour%20Les%20Saveurs%20de%20Nad%2C%20je%20vous%20contacte%20depuis%20la%20page%20*LSJ%20B%C3%A9nin%20-%20Les%20Serveurs%20de%20J%C3%A9rusalem*%20%F0%9F%8C%9F%0A%0AJe%20suis%20int%C3%A9ress%C3%A9%20par%20votre%20restaurant%20et%20je%20souhaite%20en%20savoir%20plus%20ou%20r%C3%A9server%20une%20table."
+               class="btn-whatsapp-lg"
                target="_blank"
                rel="noopener noreferrer"
                onclick="trackConversion('saveurs_de_nad', 'whatsapp_click')">
@@ -721,13 +768,12 @@
       </article>
     </div>
 
-    <!-- CTA Devenir Partenaire -->
     <div class="partner-cta-box">
       <h3>Vous êtes commerçant ?</h3>
       <p>Rejoignez le réseau <strong>Les Serveurs de Jérusalem</strong> et touchez des milliers de clients potentiels. Profitez de notre visibilité pour développer votre activité.</p>
-      <a href="https://wa.me/229160986656?text=Bonjour%20LSJ%20B%C3%A9nin%2C%20je%20souhaite%20devenir%20partenaire%20commer%C3%A7ant%20sur%20votre%20plateforme%20*Les%20Serveurs%20de%20J%C3%A9rusalem*.%20Mon%20activit%C3%A9%20est%20%3A%20" 
-         class="btn-cta" 
-         target="_blank" 
+      <a href="https://wa.me/229160986656?text=Bonjour%20LSJ%20B%C3%A9nin%2C%20je%20souhaite%20devenir%20partenaire%20commer%C3%A7ant%20sur%20votre%20plateforme%20*Les%20Serveurs%20de%20J%C3%A9rusalem*.%20Mon%20activit%C3%A9%20est%20%3A%20"
+         class="btn-cta"
+         target="_blank"
          rel="noopener noreferrer"
          onclick="trackConversion('devenir_partenaire', 'cta_click')">
         📋 Devenir Partenaire LSJ
@@ -746,9 +792,9 @@
       <p>Notre ferme-école à Dogoudo est un espace de découverte et de partage. Venez apprendre et consommer frais au cœur de l'agroécologie béninoise.</p>
     </div>
     <div class="map-frame-container">
-      <iframe 
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15860!2d2.28!3d6.43!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMjUnNDguMCJOIDLCsDE2JzQ4LjAiRQ!5e0!3m2!1sfr!2sbj!4v1234567897" 
-        allowfullscreen="" 
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15860!2d2.28!3d6.43!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMjUnNDguMCJOIDLCsDE2JzQ4LjAiRQ!5e0!3m2!1sfr!2sbj!4v1234567897"
+        allowfullscreen=""
         loading="lazy"
         referrerpolicy="no-referrer-when-downgrade"
         title="Localisation LSJ Bénin - Dogoudo Hêvié">
@@ -822,6 +868,7 @@
     <div class="footer-col">
       <h5>Menu Rapide</h5>
       <a href="#accueil">Accueil</a>
+      <a href="#actualites">Évolution</a>
       <a href="#expertise">Nos Expertises</a>
       <a href="#vision">Notre Vision</a>
       <a href="#partenaires">Nos Partenaires</a>
@@ -919,6 +966,17 @@ window.addEventListener('scroll', () => {
     }
   });
 });
+
+// --- RECHERCHE PARTENAIRES ---
+function filterPartners() {
+  const input = document.getElementById("searchPartner").value.toLowerCase().trim();
+  const partners = document.querySelectorAll(".partner-featured");
+
+  partners.forEach(partner => {
+    const text = (partner.innerText + " " + (partner.dataset.category || "")).toLowerCase();
+    partner.style.display = text.includes(input) ? "block" : "none";
+  });
+}
 
 // --- TRACKING CONVERSIONS ---
 function trackConversion(partnerId, action) {
