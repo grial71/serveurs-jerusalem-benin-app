@@ -1,1032 +1,489 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-  <meta name="description" content="LSJ Bénin - Les Serveurs de Jérusalem. De la Production à l'Assiette. Excellence agroécologique à Dogoudo, Hêvié. Portail officiel des partenaires commerçants locaux.">
-  <meta name="keywords" content="LSJ Bénin, Les Serveurs de Jérusalem, agriculture bio, Dogoudo, Hêvié, partenaires commerçants, Bénin, Les Saveurs de Nad">
-  <meta name="author" content="LSJ Bénin">
-  <meta property="og:title" content="LSJ Bénin | Les Serveurs de Jérusalem - Excellence Agricole & Partenaires">
-  <meta property="og:description" content="Portail officiel LSJ Bénin. Découvrez nos partenaires commerçants locaux et notre excellence agroécologique.">
-  <meta property="og:type" content="website">
-  <title>LSJ Bénin | Les Serveurs de Jérusalem - Excellence Agricole & Partenaires Locaux</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LSJ Bénin | Les Serveurs de Jérusalem</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800;900&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
 
-  <style>
-    :root {
-      --primary: #004a99;
-      --primary-light: #0066cc;
-      --secondary: #218838;
-      --secondary-dark: #19692c;
-      --accent: #ff9900;
-      --gold: #d4af37;
-      --dark-deep: #050a14;
-      --text-main: #1e293b;
-      --text-muted: #475569;
-      --bg-glass: rgba(255, 255, 255, 0.98);
-      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-      --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
-      --shadow-hd: 0 35px 60px -15px rgba(0, 0, 0, 0.5);
-      --transition-fast: 0.2s ease;
-      --transition-med: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-      --radius-sm: 10px;
-      --radius-md: 25px;
-      --radius-lg: 50px;
-    }
+<style>
+:root{
+  --blue:#004a99;
+  --green:#218838;
+  --orange:#ff9900;
+  --dark:#050a14;
+  --text:#1e293b;
+  --muted:#475569;
+  --glass:rgba(255,255,255,.96);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:Poppins,sans-serif;
+  background:#eef4ef;
+  color:var(--text);
+  line-height:1.75;
+  overflow-x:hidden;
+}
+.bg-overlay{
+  position:fixed;inset:0;
+  background:linear-gradient(rgba(5,10,20,.72),rgba(5,10,20,.82)),url("images/nature-hero.png");
+  background-size:cover;background-position:center;
+  z-index:-1;
+}
+header{
+  position:sticky;top:0;z-index:1000;
+  background:var(--glass);
+  backdrop-filter:blur(14px);
+  box-shadow:0 6px 25px rgba(0,0,0,.12);
+  padding:8px 6%;
+}
+.header-line{
+  display:flex;align-items:center;justify-content:space-between;gap:20px;
+}
+.brand{
+  display:flex;align-items:center;gap:12px;text-decoration:none;
+}
+.brand img{
+  width:56px;height:56px;border-radius:50%;object-fit:cover;
+  border:3px solid var(--blue);background:white;
+}
+.brand h1{
+  font-family:"Playfair Display",serif;
+  color:var(--blue);
+  font-size:1.45rem;
+  line-height:1;
+}
+.brand span{
+  display:block;
+  color:var(--green);
+  font-weight:800;
+  font-size:.64rem;
+  letter-spacing:2px;
+  text-transform:uppercase;
+}
+nav{
+  display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:6px;
+}
+nav a{
+  text-decoration:none;color:#111827;
+  font-weight:800;font-size:.72rem;
+  text-transform:uppercase;letter-spacing:1px;
+  padding:5px 8px;border-radius:20px;
+}
+nav a:hover,nav a.active{background:var(--green);color:white}
 
-    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
-    html { scroll-behavior: smooth; font-size: 16px; }
-    body { font-family: 'Poppins', sans-serif; color: var(--text-main); background-color: #f1f5f9; line-height: 1.8; overflow-x: hidden; }
+.hero{
+  min-height:82vh;
+  display:flex;align-items:center;justify-content:center;text-align:center;
+  color:white;padding:60px 8%;
+}
+.hero-box{
+  max-width:900px;
+  background:rgba(0,0,0,.42);
+  padding:45px 35px;
+  border-radius:35px;
+  backdrop-filter:blur(8px);
+  box-shadow:0 30px 70px rgba(0,0,0,.45);
+}
+.hero-tag{
+  display:inline-block;
+  background:var(--green);
+  color:white;
+  padding:9px 24px;
+  border-radius:30px;
+  font-weight:900;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  margin-bottom:18px;
+}
+.hero h2{
+  font-family:"Playfair Display",serif;
+  font-size:clamp(2.4rem,7vw,5rem);
+  line-height:1.05;
+  margin-bottom:20px;
+}
+.hero p{font-size:clamp(1rem,2.5vw,1.25rem)}
 
-    /* ========================================
-       LOADER ÉLÉGANT
-       ======================================== */
-    #page-loader {
-      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      z-index: 99999; display: flex; justify-content: center; align-items: center;
-      flex-direction: column; transition: opacity 0.8s ease, visibility 0.8s ease;
-    }
-    #page-loader.hidden { opacity: 0; visibility: hidden; }
-    .loader-ring {
-      width: 80px; height: 80px; border: 4px solid rgba(255,255,255,0.2);
-      border-top-color: white; border-radius: 50%; animation: spin 1s linear infinite;
-    }
-    .loader-text {
-      color: white; margin-top: 25px; font-weight: 600; letter-spacing: 4px;
-      text-transform: uppercase; font-size: 0.85rem;
-    }
-    @keyframes spin { to { transform: rotate(360deg); } }
+section{padding:70px 7%}
+.card{
+  max-width:1350px;margin:auto;
+  background:var(--glass);
+  border-radius:35px;
+  padding:45px 5%;
+  box-shadow:0 28px 60px rgba(0,0,0,.35);
+}
+.title{text-align:center;margin-bottom:42px}
+.title h2{
+  font-family:"Playfair Display",serif;
+  color:var(--blue);
+  font-size:clamp(1.8rem,4.5vw,3rem);
+}
+.title p{color:var(--muted);max-width:780px;margin:18px auto 0}
 
-    /* ========================================
-       BACKGROUND IMMERSIF
-       ======================================== */
-    .bg-overlay {
-      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-      background: linear-gradient(rgba(5,10,20,0.78), rgba(5,10,20,0.82)), url('images/nature-hero.png');
-      background-size: cover; background-position: center; background-attachment: fixed; z-index: -1;
-    }
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:22px;
+}
+.box{
+  background:white;
+  padding:28px;
+  border-radius:24px;
+  box-shadow:0 12px 28px rgba(0,0,0,.08);
+  border-top:6px solid var(--green);
+  transition:.35s;
+}
+.box:hover{transform:translateY(-8px);box-shadow:0 22px 40px rgba(0,0,0,.16)}
+.box h3{color:var(--blue);margin-bottom:10px}
+.icon{font-size:2.3rem;display:block;margin-bottom:8px}
 
-    /* ========================================
-       BARRE DE TRADUCTION
-       ======================================== */
-    .top-utility-bar {
-      background: var(--dark-deep); padding: 10px 8%;
-      display: flex; justify-content: flex-end; align-items: center;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-    }
-    #google_translate_element { min-width: 150px; }
+.photo-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:22px;
+}
+.photo-card{
+  background:white;border-radius:25px;overflow:hidden;
+  box-shadow:0 14px 35px rgba(0,0,0,.16);
+  transition:.35s;
+}
+.photo-card:hover{transform:translateY(-8px) scale(1.01)}
+.photo-card img{
+  width:100%;
+  height:230px;
+  object-fit:cover;
+  display:block;
+}
+.photo-card div{padding:20px}
+.photo-card h3{color:var(--green);margin-bottom:8px}
 
-    /* ========================================
-       HEADER PRINCIPAL
-       ======================================== */
-    header {
-      background: var(--bg-glass); backdrop-filter: blur(20px);
-      padding: 12px 8%; display: flex; justify-content: space-between; align-items: center;
-      position: sticky; top: 0; z-index: 1000; box-shadow: var(--shadow-md);
-      transition: var(--transition-med);
-    }
-    .brand-group {
-      display: flex; align-items: center; text-decoration: none;
-      transition: transform 0.3s ease;
-    }
-    .brand-group:hover { transform: scale(1.02); }
-    .brand-group img {
-      height: 65px; width: 65px; border-radius: 50%; border: 3px solid var(--primary);
-      margin-right: 18px; background: white; padding: 3px;
-      box-shadow: var(--shadow-sm); object-fit: cover;
-    }
-    .brand-group h1 {
-      font-family: 'Playfair Display', serif; font-size: 1.7rem;
-      color: var(--primary); font-weight: 900; letter-spacing: -0.5px;
-    }
-    .brand-group span {
-      display: block; font-size: 0.72rem; color: var(--secondary);
-      font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; margin-top: 2px;
-    }
+.vision-text{
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  gap:30px;
+  align-items:center;
+}
+.quote{
+  background:linear-gradient(135deg,var(--blue),#0066cc);
+  color:white;
+  padding:32px;
+  border-radius:24px;
+  border-left:10px solid var(--green);
+  font-style:italic;
+  font-size:1.15rem;
+}
+.stats{
+  display:grid;gap:18px;
+}
+.stat{
+  background:white;text-align:center;padding:28px;border-radius:22px;
+  box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+.stat strong{font-size:2.4rem;color:var(--green);display:block}
 
-    /* ========================================
-       NAVIGATION
-       ======================================== */
-    nav ul { list-style: none; display: flex; gap: 22px; }
-    nav a {
-      color: var(--text-main); text-decoration: none; font-weight: 700;
-      font-size: 0.78rem; text-transform: uppercase; letter-spacing: 1.5px;
-      position: relative; padding: 5px 0; transition: color 0.3s ease;
-    }
-    nav a::after {
-      content: ''; position: absolute; width: 0; height: 3px;
-      bottom: -2px; left: 0; background: var(--secondary);
-      transition: var(--transition-med); border-radius: 10px;
-    }
-    nav a:hover::after { width: 100%; }
-    nav a:hover { color: var(--secondary); }
-    nav a.active { color: var(--secondary); }
-    nav a.active::after { width: 100%; }
+.partner{
+  max-width:850px;margin:auto;background:white;border-radius:30px;overflow:hidden;
+  box-shadow:0 20px 50px rgba(0,0,0,.15);
+}
+.partner-head{
+  background:linear-gradient(135deg,var(--blue),#0066cc);
+  text-align:center;color:white;padding:38px 25px;
+}
+.partner-head img{
+  width:115px;height:115px;border-radius:50%;
+  background:white;object-fit:cover;border:5px solid white;
+}
+.partner-body{padding:30px}
+.tags{display:flex;flex-wrap:wrap;gap:10px;margin:20px 0}
+.tag{
+  background:#e8f5e9;color:#19692c;
+  padding:7px 15px;border-radius:20px;font-weight:700;font-size:.84rem;
+}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  background:linear-gradient(135deg,#25D366,#128C7E);
+  color:white;text-decoration:none;
+  padding:14px 24px;border-radius:18px;font-weight:900;
+}
+.map{
+  height:430px;border-radius:24px;overflow:hidden;border:8px solid white;
+  box-shadow:0 18px 40px rgba(0,0,0,.18);
+}
+.map iframe{width:100%;height:100%;border:0}
 
-    /* ========================================
-       HERO SECTION
-       ======================================== */
-    .hero-container {
-      height: 92vh; display: flex; flex-direction: column;
-      justify-content: center; align-items: center; text-align: center;
-      color: white; padding: 0 10%; position: relative;
-    }
-    .hero-tagline {
-      font-size: clamp(0.9rem, 2.5vw, 1.4rem); font-weight: 800;
-      text-transform: uppercase; letter-spacing: 5px; color: var(--secondary);
-      margin-bottom: 25px; background: rgba(0,0,0,0.4); padding: 12px 35px;
-      border-radius: var(--radius-sm); backdrop-filter: blur(5px);
-      animation: fadeInDown 1s ease-out; border: 1px solid rgba(255,255,255,0.1);
-    }
-    .hero-container h2 {
-      font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 9vw, 5.5rem);
-      margin-bottom: 25px; line-height: 1.05; text-shadow: 0 10px 40px rgba(0,0,0,0.8);
-      animation: fadeInUp 1s ease-out 0.2s both;
-    }
-    .hero-container p {
-      font-size: clamp(0.95rem, 3.5vw, 1.3rem); max-width: 750px;
-      font-weight: 300; text-shadow: 2px 2px 15px rgba(0,0,0,0.6);
-      animation: fadeInUp 1s ease-out 0.4s both; opacity: 0.9; line-height: 1.7;
-    }
-    .hero-scroll {
-      position: absolute; bottom: 35px; animation: bounce 2s infinite; cursor: pointer;
-    }
-    .hero-scroll span {
-      display: block; width: 28px; height: 48px; border: 2px solid rgba(255,255,255,0.4);
-      border-radius: 20px; position: relative;
-    }
-    .hero-scroll span::before {
-      content: ''; position: absolute; top: 8px; left: 50%; transform: translateX(-50%);
-      width: 5px; height: 9px; background: white; border-radius: 3px;
-      animation: scrollWheel 2s infinite;
-    }
-    @keyframes bounce {
-      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-      40% { transform: translateY(-12px); }
-      60% { transform: translateY(-6px); }
-    }
-    @keyframes scrollWheel {
-      0% { top: 8px; opacity: 1; }
-      100% { top: 22px; opacity: 0; }
-    }
+.dock{
+  position:fixed;right:22px;bottom:24px;z-index:5000;
+  display:flex;flex-direction:column;gap:12px;
+}
+.dock a,.music{
+  width:58px;height:58px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.6rem;text-decoration:none;border:0;
+  box-shadow:0 15px 35px rgba(0,0,0,.25);
+  cursor:pointer;
+}
+.wa{background:#25D366;color:white}
+.tk{background:#111;color:white}
+.music{
+  position:fixed;left:22px;bottom:24px;width:auto;padding:0 22px;
+  border-radius:50px;background:white;color:var(--blue);
+  font-weight:900;font-size:.85rem;gap:8px;z-index:5000;
+}
 
-    /* ========================================
-       SECTIONS GÉNÉRALES
-       ======================================== */
-    .section-wrapper { padding: 90px 8%; position: relative; }
-    .glass-inner-card {
-      background: var(--bg-glass); border-radius: var(--radius-lg);
-      padding: 70px 6%; box-shadow: var(--shadow-hd);
-      border: 1px solid rgba(255,255,255,0.6); max-width: 1400px; margin: 0 auto;
-    }
-    .title-block { text-align: center; margin-bottom: 60px; }
-    .title-block h2 {
-      font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 5vw, 3.2rem);
-      color: var(--primary); margin-bottom: 20px; position: relative; display: inline-block;
-    }
-    .title-block h2::after {
-      content: ''; width: 100px; height: 5px; background: var(--secondary);
-      position: absolute; bottom: -12px; left: 50%; transform: translateX(-50%);
-      border-radius: 20px;
-    }
-    .title-block p {
-      font-size: 1.15rem; color: var(--text-muted); max-width: 650px;
-      margin: 30px auto 0; line-height: 1.8;
-    }
+footer{
+  background:var(--dark);color:#94a3b8;
+  padding:55px 7%;text-align:center;
+}
+footer strong{color:white}
 
-    /* ========================================
-       DERNIÈRES ÉVOLUTIONS
-       ======================================== */
-    .update-card {
-      background: linear-gradient(135deg, rgba(255,255,255,0.98), rgba(240,253,244,0.98));
-    }
-    .update-layout {
-      display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      gap: 40px;
-      align-items: center;
-    }
-    .update-main {
-      background: white;
-      padding: 35px;
-      border-radius: 28px;
-      box-shadow: var(--shadow-lg);
-      border-left: 8px solid var(--secondary);
-    }
-    .update-badge {
-      display: inline-block;
-      background: var(--accent);
-      color: white;
-      padding: 8px 18px;
-      border-radius: 30px;
-      font-size: 0.8rem;
-      font-weight: 800;
-      margin-bottom: 18px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-    .update-main h3 {
-      font-family: 'Playfair Display', serif;
-      color: var(--primary);
-      font-size: 2rem;
-      margin-bottom: 18px;
-      line-height: 1.2;
-    }
-    .update-main p { color: var(--text-muted); margin-bottom: 22px; }
-    .update-list { list-style: none; margin-bottom: 28px; }
-    .update-list li {
-      background: #f0fdf4;
-      margin-bottom: 10px;
-      padding: 12px 15px;
-      border-radius: 14px;
-      font-weight: 600;
-      color: #1f2937;
-    }
-    .update-btn {
-      display: inline-block;
-      background: linear-gradient(135deg, var(--secondary), var(--secondary-dark));
-      color: white;
-      text-decoration: none;
-      padding: 14px 28px;
-      border-radius: 40px;
-      font-weight: 800;
-      box-shadow: 0 10px 25px rgba(33,136,56,0.25);
-      transition: all 0.3s ease;
-    }
-    .update-btn:hover { transform: translateY(-3px); box-shadow: 0 18px 35px rgba(33,136,56,0.35); }
-    .update-gallery {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 14px;
-    }
-    .update-gallery img {
-      width: 100%;
-      height: 230px;
-      object-fit: cover;
-      border-radius: 22px;
-      box-shadow: var(--shadow-md);
-      transition: all 0.4s ease;
-      background: #e2e8f0;
-    }
-    .update-gallery img:hover { transform: scale(1.04); box-shadow: var(--shadow-lg); }
-    .update-note {
-      margin-top: 28px;
-      background: linear-gradient(135deg, rgba(0,74,153,0.08), rgba(33,136,56,0.08));
-      border-radius: 22px;
-      padding: 22px 26px;
-      border-left: 6px solid var(--accent);
-      color: #334155;
-      font-weight: 600;
-    }
-
-    /* ========================================
-       EXPERTISE
-       ======================================== */
-    .expertise-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;
-    }
-    .expert-card {
-      background: white; border-radius: var(--radius-md); padding: 45px 30px;
-      transition: var(--transition-med); border-top: 7px solid var(--secondary);
-      box-shadow: 0 8px 25px rgba(0,0,0,0.05); position: relative; overflow: hidden;
-      opacity: 0; transform: translateY(30px);
-    }
-    .expert-card.visible { opacity: 1; transform: translateY(0); }
-    .expert-card:hover { transform: translateY(-12px); box-shadow: var(--shadow-lg); }
-    .expert-card::before {
-      content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
-      background: radial-gradient(circle, rgba(40,167,69,0.06) 0%, transparent 70%);
-      transition: 0.5s; opacity: 0;
-    }
-    .expert-card:hover::before { opacity: 1; }
-    .expert-icon { font-size: 2.8rem; margin-bottom: 18px; display: block; }
-    .expert-card h3 {
-      color: var(--primary); font-size: 1.5rem; margin-bottom: 15px;
-      font-family: 'Playfair Display', serif; position: relative; z-index: 1;
-    }
-    .expert-card p { font-size: 1rem; color: var(--text-muted); position: relative; z-index: 1; line-height: 1.7; }
-
-    /* ========================================
-       VISION
-       ======================================== */
-    .vision-container { display: flex; flex-direction: column; gap: 45px; }
-    .vision-content { display: grid; grid-template-columns: 1.3fr 0.7fr; gap: 45px; align-items: center; }
-    .vision-text { font-size: 1.1rem; color: #334155; }
-    .vision-text p { margin-bottom: 22px; line-height: 1.85; }
-    .highlight-quote {
-      background: linear-gradient(135deg, var(--primary), var(--primary-light));
-      color: white; padding: 40px; border-radius: var(--radius-md);
-      font-size: 1.25rem; font-style: italic; border-left: 10px solid var(--secondary);
-      line-height: 1.55; position: relative; box-shadow: 0 12px 35px rgba(0,74,153,0.2);
-      margin-top: 25px;
-    }
-    .highlight-quote::before {
-      content: '"'; font-size: 4.5rem; position: absolute; top: -8px; left: 18px;
-      opacity: 0.25; font-family: 'Playfair Display', serif;
-    }
-    .stats-visual { display: flex; flex-direction: column; gap: 18px; }
-    .stat-card {
-      background: white; border-radius: var(--radius-md); padding: 30px;
-      text-align: center; box-shadow: 0 8px 25px rgba(0,0,0,0.05);
-      transition: all 0.3s ease; border-bottom: 7px solid var(--primary);
-      opacity: 0; transform: translateY(20px);
-    }
-    .stat-card.visible { opacity: 1; transform: translateY(0); }
-    .stat-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
-    .stat-card h4 { font-size: 2.8rem; color: var(--secondary); font-weight: 900; margin-bottom: 8px; }
-    .stat-card p { color: var(--text-muted); font-weight: 600; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; }
-
-    /* ========================================
-       PARTENAIRES - SECTION PRINCIPALE
-       ======================================== */
-    #partenaires { padding: 90px 8%; position: relative; }
-    .partners-intro {
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      border-radius: var(--radius-lg); padding: 50px 40px; text-align: center;
-      color: white; margin-bottom: 35px; position: relative; overflow: hidden;
-    }
-    .partners-intro::before {
-      content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
-      background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
-    }
-    .partners-intro h3 { font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 15px; position: relative; z-index: 1; }
-    .partners-intro p { font-size: 1.05rem; opacity: 0.95; max-width: 600px; margin: 0 auto; position: relative; z-index: 1; line-height: 1.7; }
-
-    /* Recherche partenaire */
-    .search-partner-box { text-align: center; margin-bottom: 40px; }
-    .search-partner-box input {
-      width: 100%; max-width: 620px; padding: 16px 22px;
-      border-radius: 50px; border: 2px solid #e2e8f0; font-size: 1rem;
-      outline: none; transition: all 0.3s ease; box-shadow: var(--shadow-sm);
-      font-family: 'Poppins', sans-serif;
-    }
-    .search-partner-box input:focus { border-color: var(--secondary); box-shadow: 0 0 18px rgba(33, 136, 56, 0.25); }
-
-    .partner-showcase { display: grid; grid-template-columns: 1fr; gap: 40px; max-width: 900px; margin: 0 auto; }
-    .partner-featured {
-      background: white; border-radius: 30px; overflow: hidden;
-      box-shadow: 0 15px 50px rgba(0,0,0,0.1); transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-      border: 2px solid transparent; position: relative;
-      opacity: 0; transform: translateY(40px);
-    }
-    .partner-featured.visible { opacity: 1; transform: translateY(0); }
-    .partner-featured:hover { transform: translateY(-10px) scale(1.01); box-shadow: 0 30px 60px rgba(0,0,0,0.15); border-color: var(--secondary); }
-    .partner-featured-header {
-      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-      padding: 50px 30px 70px; text-align: center; position: relative; overflow: hidden;
-    }
-    .partner-featured-header::before {
-      content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
-      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-    }
-    .partner-featured-logo {
-      width: 140px; height: 140px; border-radius: 50%; border: 6px solid white;
-      background: white; object-fit: cover; box-shadow: 0 12px 35px rgba(0,0,0,0.25);
-      position: relative; z-index: 2; transition: transform 0.5s ease;
-    }
-    .partner-featured:hover .partner-featured-logo { transform: scale(1.08) rotate(3deg); }
-    .partner-featured-name { color: white; font-family: 'Playfair Display', serif; font-size: 2rem; margin-top: 20px; position: relative; z-index: 2; }
-    .partner-featured-badge {
-      display: inline-block; background: var(--accent); color: white;
-      padding: 8px 25px; border-radius: 50px; font-size: 0.75rem;
-      font-weight: 800; text-transform: uppercase; letter-spacing: 2px;
-      margin-top: 12px; position: relative; z-index: 2; box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    }
-    .partner-featured-body { padding: 35px 40px; position: relative; }
-    .partner-featured-desc { background: #f8fafc; padding: 25px; border-radius: 18px; margin-bottom: 25px; border-left: 5px solid var(--accent); }
-    .partner-featured-desc h4 { color: var(--primary); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 10px; font-weight: 700; }
-    .partner-featured-desc p { color: var(--text-muted); font-size: 1.05rem; line-height: 1.7; }
-    .partner-featured-services { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 25px; }
-    .service-tag { background: linear-gradient(135deg, #e8f5e9, #c8e6c9); color: var(--secondary-dark); padding: 8px 18px; border-radius: 25px; font-size: 0.85rem; font-weight: 600; }
-    .partner-featured-contact { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-    .btn-whatsapp-lg {
-      display: flex; align-items: center; justify-content: center; gap: 10px;
-      padding: 18px; background: linear-gradient(135deg, #25D366, #128C7E);
-      color: white; text-decoration: none; border-radius: 15px;
-      font-weight: 700; font-size: 1rem; transition: all 0.3s ease;
-      position: relative; overflow: hidden; border: none; cursor: pointer;
-      font-family: 'Poppins', sans-serif; grid-column: 1 / -1;
-    }
-    .btn-whatsapp-lg::before { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent); transition: left 0.6s ease; }
-    .btn-whatsapp-lg:hover::before { left: 100%; }
-    .btn-whatsapp-lg:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(37, 211, 102, 0.3); }
-    .btn-call { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 15px; background: var(--primary); color: white; text-decoration: none; border-radius: 12px; font-weight: 700; font-size: 0.95rem; transition: all 0.3s ease; border: none; font-family: 'Poppins', sans-serif; }
-    .btn-call:hover { background: var(--primary-light); transform: translateY(-2px); }
-
-    .partner-cta-box { text-align: center; margin-top: 60px; padding: 50px 40px; background: linear-gradient(135deg, var(--dark-deep), #0f172a); border-radius: 25px; color: white; position: relative; overflow: hidden; }
-    .partner-cta-box h3 { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 15px; position: relative; z-index: 1; }
-    .partner-cta-box p { font-size: 1rem; margin-bottom: 25px; opacity: 0.9; max-width: 550px; margin-left: auto; margin-right: auto; position: relative; z-index: 1; line-height: 1.7; }
-    .btn-cta { display: inline-block; padding: 16px 40px; background: white; color: var(--primary); text-decoration: none; border-radius: 50px; font-weight: 800; font-size: 0.95rem; transition: all 0.3s ease; box-shadow: 0 10px 30px rgba(0,0,0,0.2); position: relative; z-index: 1; border: none; cursor: pointer; font-family: 'Poppins', sans-serif; }
-    .btn-cta:hover { transform: translateY(-4px) scale(1.03); box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
-
-    /* ========================================
-       AGROTOURISME
-       ======================================== */
-    .map-frame-container { border-radius: var(--radius-md); overflow: hidden; border: 10px solid white; box-shadow: var(--shadow-lg); height: 450px; width: 100%; margin-top: 35px; }
-    .map-frame-container iframe { width: 100%; height: 100%; border: none; }
-
-    /* ========================================
-       CONTACT
-       ======================================== */
-    .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 25px; }
-    .contact-box { padding: 40px 25px; text-align: center; border-radius: var(--radius-md); background: #f8fafc; transition: all 0.3s ease; border: 2px solid transparent; opacity: 0; transform: translateY(20px); }
-    .contact-box.visible { opacity: 1; transform: translateY(0); }
-    .contact-box:hover { background: white; box-shadow: var(--shadow-md); border-color: var(--secondary); transform: translateY(-5px); }
-    .contact-icon { font-size: 2.5rem; margin-bottom: 15px; display: block; }
-    .contact-box h4 { font-size: 1.3rem; color: var(--primary); margin-bottom: 12px; }
-    .contact-box p { color: var(--text-muted); line-height: 1.8; font-size: 0.95rem; }
-    .contact-box a { color: var(--secondary); font-weight: 800; text-decoration: none; font-size: 1.15rem; transition: color 0.3s; }
-    .contact-box a:hover { color: var(--primary); }
-
-    /* ========================================
-       BOUTONS FLOTTANTS
-       ======================================== */
-    .dock-actions { position: fixed; bottom: 30px; right: 30px; display: flex; flex-direction: column; gap: 15px; z-index: 5000; }
-    .btn-action { width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; text-decoration: none; font-size: 1.7rem; box-shadow: var(--shadow-lg); transition: var(--transition-med); cursor: pointer; border: none; position: relative; }
-    .btn-action::after { content: attr(data-label); position: absolute; right: 75px; background: var(--dark-deep); color: white; padding: 7px 14px; border-radius: 10px; font-size: 0.75rem; font-weight: 600; white-space: nowrap; opacity: 0; transform: translateX(10px); transition: all 0.3s ease; pointer-events: none; }
-    .btn-action:hover::after { opacity: 1; transform: translateX(0); }
-    .wa-btn { background: linear-gradient(135deg, #25D366, #128C7E); }
-    .tk-btn { background: linear-gradient(135deg, #000000, #333333); }
-    .btn-action:hover { transform: scale(1.15) rotate(8deg); }
-
-    .music-control { position: fixed; bottom: 30px; left: 30px; background: white; border: none; padding: 14px 28px; border-radius: 60px; cursor: pointer; font-weight: 800; box-shadow: var(--shadow-lg); z-index: 5000; color: var(--primary); font-size: 0.85rem; display: flex; align-items: center; gap: 10px; transition: all 0.3s ease; font-family: 'Poppins', sans-serif; }
-    .music-control:hover { transform: translateY(-3px); box-shadow: 0 15px 35px rgba(0,0,0,0.15); }
-    .music-control.playing { color: var(--secondary); animation: pulse-music 1.5s infinite; }
-    @keyframes pulse-music { 0%, 100% { box-shadow: 0 0 0 0 rgba(33, 136, 56, 0.4); } 50% { box-shadow: 0 0 0 12px rgba(33, 136, 56, 0); } }
-
-    /* ========================================
-       FOOTER
-       ======================================== */
-    footer { background: var(--dark-deep); color: #94a3b8; padding: 70px 8% 35px; text-align: left; }
-    .footer-main { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 50px; margin-bottom: 50px; }
-    .footer-main h5 { color: white; font-size: 1.4rem; margin-bottom: 22px; font-family: 'Playfair Display', serif; }
-    .footer-main p { font-size: 0.92rem; line-height: 1.85; color: #94a3b8; }
-    .footer-main a { color: #94a3b8; text-decoration: none; display: block; margin-bottom: 10px; transition: all 0.3s; font-size: 0.92rem; }
-    .footer-main a:hover { color: white; padding-left: 6px; }
-    .footer-brand { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; }
-    .footer-brand img { width: 45px; height: 45px; border-radius: 50%; border: 2px solid var(--secondary); object-fit: cover; }
-    .copyright { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 25px; text-align: center; font-size: 0.88rem; }
-    .copyright strong { color: white; font-weight: 700; }
-
-    /* ========================================
-       NOTIFICATION
-       ======================================== */
-    .notification { position: fixed; top: 100px; right: -400px; background: var(--secondary); color: white; padding: 16px 28px; border-radius: 15px; font-weight: 700; z-index: 100000; box-shadow: 0 10px 30px rgba(0,0,0,0.2); transition: right 0.5s cubic-bezier(0.4, 0, 0.2, 1); max-width: 350px; line-height: 1.5; font-size: 0.95rem; }
-    .notification.show { right: 20px; }
-
-    /* ========================================
-       ANIMATIONS
-       ======================================== */
-    @keyframes fadeInUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
-    @keyframes fadeInDown { from { opacity: 0; transform: translateY(-40px); } to { opacity: 1; transform: translateY(0); } }
-
-    /* ========================================
-       RESPONSIVE
-       ======================================== */
-    @media (max-width: 1024px) {
-      .vision-content { grid-template-columns: 1fr; }
-      .footer-main { grid-template-columns: 1fr 1fr; gap: 35px; }
-      header { padding: 12px 5%; }
-      .partner-featured-contact { grid-template-columns: 1fr; }
-      .update-layout { grid-template-columns: 1fr; }
-    }
-    @media (max-width: 768px) {
-      header { flex-direction: column; gap: 12px; padding: 10px 5%; }
-      nav ul { gap: 10px; flex-wrap: wrap; justify-content: center; }
-      nav a { font-size: 0.72rem; letter-spacing: 1px; }
-      .glass-inner-card { padding: 45px 18px; border-radius: var(--radius-md); }
-      .hero-container h2 { font-size: 2.2rem; }
-      .hero-tagline { font-size: 0.8rem; letter-spacing: 3px; padding: 8px 20px; }
-      .dock-actions { right: 12px; bottom: 80px; }
-      .btn-action { width: 50px; height: 50px; font-size: 1.4rem; }
-      .music-control { left: 12px; bottom: 12px; padding: 10px 18px; font-size: 0.75rem; }
-      .top-utility-bar { justify-content: center; padding: 8px 5%; }
-      .footer-main { grid-template-columns: 1fr; gap: 35px; }
-      .partner-featured-body { padding: 25px 20px; }
-      .partner-featured-name { font-size: 1.6rem; }
-      .partner-featured-logo { width: 110px; height: 110px; }
-      .section-wrapper { padding: 60px 5%; }
-      .partners-intro { padding: 35px 25px; }
-      .partners-intro h3 { font-size: 1.6rem; }
-      .partner-cta-box { padding: 35px 25px; }
-      .update-gallery img { height: 180px; }
-    }
-    @media (max-width: 480px) {
-      .brand-group h1 { font-size: 1.3rem; }
-      .brand-group img { width: 50px; height: 50px; }
-      .brand-group span { font-size: 0.65rem; }
-      .hero-container { height: 85vh; padding: 0 7%; }
-      .title-block h2 { font-size: 1.6rem; }
-      .expertise-grid { grid-template-columns: 1fr; }
-      .partner-featured-contact { grid-template-columns: 1fr; }
-      .btn-whatsapp-lg { grid-column: 1; }
-      .update-gallery { grid-template-columns: 1fr; }
-      .update-main { padding: 25px; }
-    }
-  </style>
-<base target="_blank">
+@media(max-width:850px){
+  header{padding:7px 4%}
+  .header-line{flex-direction:row}
+  .brand img{width:46px;height:46px}
+  .brand h1{font-size:1.1rem}
+  .brand span{font-size:.55rem;letter-spacing:1.4px}
+  nav{justify-content:flex-start;overflow-x:auto;flex-wrap:nowrap;padding-bottom:3px}
+  nav a{font-size:.66rem;white-space:nowrap}
+  .hero{min-height:70vh;padding-top:35px}
+  .hero-box{padding:30px 20px}
+  section{padding:48px 4%}
+  .card{padding:32px 18px;border-radius:25px}
+  .vision-text{grid-template-columns:1fr}
+  .photo-card img{height:210px}
+  .music{left:10px;bottom:10px;padding:0 16px}
+  .dock{right:10px;bottom:78px}
+}
+</style>
 </head>
+
 <body>
-
-<!-- ========================================
-     LOADER
-     ======================================== -->
-<div id="page-loader">
-  <div class="loader-ring"></div>
-  <div class="loader-text">Les Serveurs de Jérusalem</div>
-</div>
-
-<!-- ========================================
-     NOTIFICATION
-     ======================================== -->
-<div class="notification" id="notification"></div>
-
-<!-- ========================================
-     BACKGROUND
-     ======================================== -->
 <div class="bg-overlay"></div>
 
-<!-- ========================================
-     TRADUCTION
-     ======================================== -->
-<div class="top-utility-bar">
-    <div id="google_translate_element"></div>
-</div>
-
-<!-- ========================================
-     HEADER
-     ======================================== -->
-<header id="main-nav">
-  <a href="#accueil" class="brand-group">
-    <img src="images/LogoPN.jpg" alt="Logo LSJ Bénin">
-    <div>
-      <h1>LSJ Bénin</h1>
-      <span>Les Serveurs de Jérusalem</span>
-    </div>
-  </a>
+<header>
+  <div class="header-line">
+    <a href="#accueil" class="brand">
+      <img src="images/LogoPN.jpg" alt="Logo LSJ Bénin">
+      <div>
+        <h1>LSJ Bénin</h1>
+        <span>Les Serveurs de Jérusalem</span>
+      </div>
+    </a>
+  </div>
   <nav>
-    <ul>
-      <li><a href="#accueil" class="active">Accueil</a></li>
-      <li><a href="#actualites">Évolution</a></li>
-      <li><a href="#expertise">Expertise</a></li>
-      <li><a href="#vision">Notre Vision</a></li>
-      <li><a href="#partenaires">Partenaires</a></li>
-      <li><a href="#tourisme">Agrotourisme</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
+    <a href="#accueil" class="active">Accueil</a>
+    <a href="#evolution">Évolution</a>
+    <a href="#expertise">Expertise</a>
+    <a href="#elevage">Volailles</a>
+    <a href="#gari">Gari</a>
+    <a href="#vision">Vision</a>
+    <a href="#partenaires">Partenaires</a>
+    <a href="#tourisme">Agrotourisme</a>
+    <a href="#contact">Contact</a>
   </nav>
 </header>
 
-<!-- ========================================
-     HERO
-     ======================================== -->
-<section id="accueil" class="hero-container">
-  <div class="hero-tagline">De la Production à l'Assiette</div>
-  <h2>La Passion de la Terre</h2>
-  <p>Une exploitation agroécologique de référence à Dogoudo (Hêvié), alliant techniques ancestrales Songhaï et stratégies durables pour l'excellence agricole béninoise.</p>
-  <div class="hero-scroll" onclick="document.getElementById('actualites').scrollIntoView({behavior:'smooth'})">
-    <span></span>
+<section id="accueil" class="hero">
+  <div class="hero-box">
+    <span class="hero-tag">De la Production à l'Assiette</span>
+    <h2>La Passion de la Terre</h2>
+    <p>Une exploitation agroécologique à Dogoudo / Hêvié, alliant agriculture, élevage, transformation locale, formation jeunesse et économie circulaire.</p>
   </div>
 </section>
 
-<!-- ========================================
-     DERNIÈRES ÉVOLUTIONS
-     ======================================== -->
-<section id="actualites" class="section-wrapper">
-  <div class="glass-inner-card update-card">
-    <div class="title-block">
-      <h2>🌱 Dernières Évolutions du Projet</h2>
-      <p>Suivez les avancées progressives de LSJ Bénin sur le terrain : élevage, aménagement, production locale et mise en relation avec de futurs partenaires.</p>
+<section id="evolution">
+  <div class="card">
+    <div class="title">
+      <h2>📸 Évolution récente du projet</h2>
+      <p>Les actions de Jude avancent progressivement : élevage, aménagement du terrain, production vivrière et transformation du manioc.</p>
     </div>
-
-    <div class="update-layout">
-      <div class="update-main">
-        <span class="update-badge">Mai 2026 • Dogoudo – Hêvié</span>
-        <h3>🐓 L’élevage avicole continue de progresser</h3>
-        <p>
-          Jude poursuit le développement de son espace agricole avec une amélioration progressive des installations,
-          une alimentation naturelle des volailles et les premières pontes observées sur le terrain.
-        </p>
-
-        <ul class="update-list">
-          <li>🥚 Premières pontes et espaces de nidification</li>
-          <li>🐔 Élevage en croissance progressive</li>
-          <li>🌿 Alimentation naturelle et récupération locale</li>
-          <li>🏡 Aménagement simple des abris</li>
-          <li>🤝 Premiers échanges avec des partenaires intéressés</li>
-        </ul>
-
-        <a href="#partenaires" class="update-btn">Découvrir le réseau LSJ</a>
-      </div>
-
-      <div class="update-gallery">
-        <img src="images/evolution-poules-01.png" alt="Évolution élevage LSJ Bénin">
-        <img src="images/evolution-poules-02.png" alt="Premières pontes LSJ Bénin">
-        <img src="images/evolution-poules-03.png" alt="Abris élevage LSJ Bénin">
-        <img src="images/evolution-poules-04.png" alt="Alimentation naturelle des volailles LSJ Bénin">
-      </div>
-    </div>
-
-    <div class="update-note">
-      ✨ Chaque nouvelle action renforce la vision du projet : une agriculture locale, autonome, durable et au service de la communauté.
+    <div class="photo-grid">
+      <div class="photo-card"><img src="images/evolution-poules-01.png"><div><h3>🐔 Volailles sur le terrain</h3><p>Développement progressif d’un petit élevage local.</p></div></div>
+      <div class="photo-card"><img src="images/evolution-poules-02.png"><div><h3>🥚 Premiers résultats</h3><p>Observation, reproduction et suivi naturel des volailles.</p></div></div>
+      <div class="photo-card"><img src="images/evolution-poules-03.png"><div><h3>🏡 Espace d’élevage</h3><p>Organisation d’abris simples et adaptés aux moyens disponibles.</p></div></div>
+      <div class="photo-card"><img src="images/evolution-poules-04.png"><div><h3>🌱 Alimentation naturelle</h3><p>Une logique familiale, écologique et progressive.</p></div></div>
     </div>
   </div>
 </section>
 
-<!-- ========================================
-     EXPERTISE
-     ======================================== -->
-<section id="expertise" class="section-wrapper">
-  <div class="glass-inner-card">
-    <div class="title-block">
+<section id="expertise">
+  <div class="card">
+    <div class="title">
       <h2>Nos Domaines d'Excellence</h2>
-      <p>Nous maîtrisons l'ensemble du cycle biologique pour garantir des produits d'une pureté exceptionnelle, du champ à votre assiette.</p>
+      <p>Un projet ancré dans la production locale, la formation et la valorisation des ressources du Bénin.</p>
     </div>
-    <div class="expertise-grid">
-      <div class="expert-card">
-        <span class="expert-icon">🌱</span>
-        <h3>Maraîchage Biologique</h3>
-        <p>Cultivés sur des sols régénérés, nos tomates cœur de bœuf, laitues croquantes, piments doux et carottes sont le reflet d'une terre respectée, sans pesticides ni engrais de synthèse.</p>
+    <div class="grid">
+      <div class="box"><span class="icon">🌱</span><h3>Maraîchage biologique</h3><p>Tomates, laitues, piments, carottes et cultures respectueuses du sol.</p></div>
+      <div class="box"><span class="icon">🐔</span><h3>Élevage diversifié</h3><p>Poules, pintades, cailles, lapins et volailles élevées en logique naturelle.</p></div>
+      <div class="box"><span class="icon">♻️</span><h3>Autonomie circulaire</h3><p>Déchets organiques, compost, cultures, alimentation et revenus locaux.</p></div>
+      <div class="box"><span class="icon">🎓</span><h3>Formation jeunesse</h3><p>Transmettre aux jeunes des compétences pratiques et reproductibles.</p></div>
+      <div class="box"><span class="icon">🚛</span><h3>Logistique locale</h3><p>Créer des circuits courts entre producteurs, commerçants et familles.</p></div>
+      <div class="box"><span class="icon">💡</span><h3>Innovation simple</h3><p>Utiliser les moyens locaux pour inventer des solutions utiles.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="elevage">
+  <div class="card">
+    <div class="title">
+      <h2>🐔 Élevage écologique en plein air</h2>
+      <p>LSJ Bénin développe une approche familiale et naturelle de l’élevage, sans logique industrielle.</p>
+    </div>
+    <div class="photo-grid">
+      <div class="photo-card">
+        <img src="images/elevage_poules_plein_air_01.png" alt="Élevage de poules en plein air">
+        <div><h3>Poules en liberté</h3><p>Des volailles évoluant dans un environnement végétal, vivant et naturel.</p></div>
       </div>
-      <div class="expert-card">
-        <span class="expert-icon">🐔</span>
-        <h3>Élevage Diversifié</h3>
-        <p>Notre savoir-faire avicole et cunicole s'étend des poulets Goliath aux pintades, cailles et lapins. Chaque animal est nourri avec des céréales locales pour une qualité gustative supérieure.</p>
+      <div class="photo-card">
+        <img src="images/evolution-poules-01.png" alt="Poules LSJ Bénin">
+        <div><h3>Élevage progressif</h3><p>Un modèle adapté aux moyens locaux, basé sur l’observation et l’amélioration.</p></div>
       </div>
-      <div class="expert-card">
-        <span class="expert-icon">♻️</span>
-        <h3>Autonomie Circulaire</h3>
-        <p>À LSJ Bénin, le déchet est une ressource. Nous transformons nos litières animales en compost premium, fertilisant ainsi nos cultures maraîchères dans un cycle 100% naturel.</p>
-      </div>
-      <div class="expert-card">
-        <span class="expert-icon">🎓</span>
-        <h3>Formation Jeunesse</h3>
-        <p>Notre mission est sociale : nous formons la relève agricole béninoise aux méthodes de gestion durable pour favoriser l'émergence d'une nouvelle génération d'agri-preneurs.</p>
-      </div>
-      <div class="expert-card">
-        <span class="expert-icon">🚛</span>
-        <h3>Logistique & Coopérative</h3>
-        <p>Nous structurons des réseaux de distribution directe pour garantir la fraîcheur. Notre modèle de coopérative sécurise les débouchés pour tous les petits producteurs locaux.</p>
+      <div class="photo-card">
+        <img src="images/evolution-poules-04.png" alt="Nourrissage des volailles">
+        <div><h3>Autonomie alimentaire</h3><p>Valoriser les ressources disponibles pour réduire les coûts d’élevage.</p></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ========================================
-     VISION
-     ======================================== -->
-<section id="vision" class="section-wrapper">
-  <div class="glass-inner-card">
-    <div class="title-block">
-      <h2>L'Histoire de LSJ Bénin</h2>
+<section id="gari">
+  <div class="card">
+    <div class="title">
+      <h2>🌾 Du manioc au gari</h2>
+      <p>La transformation du manioc permet de créer plus de valeur, de limiter les pertes et de soutenir les familles.</p>
     </div>
-    <div class="vision-container">
-      <div class="vision-content">
-        <div class="vision-text">
-          <p>L'aventure <strong>LSJ Bénin</strong> est portée par la détermination de <strong>Jude Gbetoho</strong>. Issu d'un parcours exemplaire au sein du <strong>Centre Songhaï</strong>, Jude a su transformer sa passion en un centre de production moderne à Dogoudo.</p>
-          <p>Grâce aux échanges stratégiques constants avec son conseiller <strong>Michel Quinones</strong>, Jude a bâti par ses propres moyens une infrastructure capable de répondre aux défis alimentaires du Bénin de demain.</p>
-          <div class="highlight-quote">
-            Notre ambition est d'offrir le meilleur de la terre, de la production à l'assiette, tout en restant fidèles à nos valeurs de solidarité et de respect environnemental.
-          </div>
-        </div>
-        <div class="stats-visual">
-          <div class="stat-card">
-            <h4>100%</h4>
-            <p>Bio & Naturel</p>
-          </div>
-          <div class="stat-card">
-            <h4>Court</h4>
-            <p>Circuit Direct</p>
-          </div>
-        </div>
+    <div class="photo-grid">
+      <div class="photo-card">
+        <img src="images/gari_preparation_01.png" alt="Râpage du manioc">
+        <div><h3>Râpage traditionnel</h3><p>Première étape de transformation artisanale du manioc.</p></div>
+      </div>
+      <div class="photo-card">
+        <img src="images/gari_preparation_02.png" alt="Séchage du manioc">
+        <div><h3>Séchage sur claies</h3><p>Préparation naturelle avant cuisson et transformation finale.</p></div>
+      </div>
+      <div class="photo-card">
+        <img src="images/gari_preparation_01.png" alt="Transformation locale">
+        <div><h3>Valeur ajoutée locale</h3><p>Transformer sur place pour créer activité, revenus et autonomie.</p></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ========================================
-     PARTENAIRES - SECTION PRINCIPALE
-     ======================================== -->
-<section id="partenaires" class="section-wrapper">
-  <div class="glass-inner-card">
-    <div class="title-block">
+<section id="vision">
+  <div class="card">
+    <div class="title"><h2>L'Histoire et la Vision LSJ</h2></div>
+    <div class="vision-text">
+      <div>
+        <p>L'aventure <strong>LSJ Bénin</strong> est portée par la détermination de <strong>Jude Gbetoho</strong>. Inspiré par l’esprit Songhaï, il construit progressivement un projet agricole, éducatif et communautaire à Dogoudo / Hêvié.</p>
+        <br>
+        <p>Avec l’accompagnement stratégique de <strong>Michel Quinones</strong>, le projet vise à relier production, formation, transformation, jeunesse et économie circulaire.</p>
+        <div class="quote">Notre ambition est d'offrir le meilleur de la terre, de la production à l'assiette, tout en formant une génération plus autonome.</div>
+      </div>
+      <div class="stats">
+        <div class="stat"><strong>100%</strong><p>Vision locale</p></div>
+        <div class="stat"><strong>♻️</strong><p>Économie circulaire</p></div>
+        <div class="stat"><strong>🎓</strong><p>Formation jeunesse</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="partenaires">
+  <div class="card">
+    <div class="title">
       <h2>🤝 Nos Partenaires Commerçants</h2>
-      <p>Découvrez les artisans et entrepreneurs de confiance partenaires de <strong>LSJ Bénin - Les Serveurs de Jérusalem</strong>. Chaque contact passé via cette page soutient notre mission.</p>
+      <p>Les partenaires locaux peuvent bénéficier de la visibilité LSJ tout en soutenant l’économie communautaire.</p>
     </div>
 
-    <div class="partners-intro">
-      <h3>Réseau Les Serveurs de Jérusalem</h3>
-      <p>Nous mettons en avant les meilleurs commerçants locaux. En passant par notre plateforme, vous garantissez la traçabilité et soutenez l'économie locale.</p>
-    </div>
-
-    <div class="search-partner-box">
-      <input
-        type="text"
-        id="searchPartner"
-        placeholder="🔍 Rechercher par type de commerce : restaurant, traiteur, légumes, artisan..."
-        onkeyup="filterPartners()"
-        aria-label="Rechercher un partenaire LSJ par type de commerce"
-      >
-    </div>
-
-    <div class="partner-showcase">
-      <article class="partner-featured" data-category="restaurant traiteur cuisine béninoise produits frais plats à emporter légumes commerce alimentation">
-        <div class="partner-featured-header">
-          <img src="images/logo-saveurs-nad.png" alt="Les Saveurs de Nad" class="partner-featured-logo">
-          <h3 class="partner-featured-name">Les Saveurs de Nad</h3>
-          <span class="partner-featured-badge">✓ Premier Partenaire Officiel LSJ</span>
+    <div class="partner">
+      <div class="partner-head">
+        <img src="images/logo-saveurs-nad.png" alt="Les Saveurs de Nad">
+        <h2>Les Saveurs de Nad</h2>
+        <p>Premier Partenaire Officiel LSJ</p>
+      </div>
+      <div class="partner-body">
+        <h3>🍽️ Description</h3>
+        <p>Restaurant traditionnel béninois spécialisé dans les saveurs authentiques, les produits frais, les plats à emporter et les services traiteur.</p>
+        <div class="tags">
+          <span class="tag">Cuisine béninoise</span>
+          <span class="tag">Produits frais</span>
+          <span class="tag">Traiteur</span>
+          <span class="tag">Événements</span>
         </div>
-        <div class="partner-featured-body">
-          <div class="partner-featured-desc">
-            <h4>🍽️ Description</h4>
-            <p>Restaurant traditionnel béninois spécialisé dans les saveurs authentiques de la région. Nad vous propose une cuisine généreuse préparée avec des produits locaux frais, dans une ambiance chaleureuse et conviviale.</p>
-          </div>
-          <div class="partner-featured-services">
-            <span class="service-tag">🍛 Cuisine Béninoise</span>
-            <span class="service-tag">🥗 Produits Frais</span>
-            <span class="service-tag">🍱 Plats à Emporter</span>
-            <span class="service-tag">🎉 Traiteur Événements</span>
-            <span class="service-tag">📍 Hêvié / Abomey-Calavi</span>
-          </div>
-          <div class="partner-featured-contact">
-            <a href="https://wa.me/229XXXXXXXX?text=Bonjour%20Les%20Saveurs%20de%20Nad%2C%20je%20vous%20contacte%20depuis%20la%20page%20*LSJ%20B%C3%A9nin%20-%20Les%20Serveurs%20de%20J%C3%A9rusalem*%20%F0%9F%8C%9F%0A%0AJe%20suis%20int%C3%A9ress%C3%A9%20par%20votre%20restaurant%20et%20je%20souhaite%20en%20savoir%20plus%20ou%20r%C3%A9server%20une%20table."
-               class="btn-whatsapp-lg"
-               target="_blank"
-               rel="noopener noreferrer"
-               onclick="trackConversion('saveurs_de_nad', 'whatsapp_click')">
-              <span style="font-size:1.4rem;">💬</span>
-              <span>Contacter sur WhatsApp</span>
-            </a>
-            <a href="tel:+229XXXXXXXX" class="btn-call" onclick="trackConversion('saveurs_de_nad', 'phone_click')">
-              <span>📞</span> Appeler
-            </a>
-          </div>
-        </div>
-      </article>
-    </div>
-
-    <div class="partner-cta-box">
-      <h3>Vous êtes commerçant ?</h3>
-      <p>Rejoignez le réseau <strong>Les Serveurs de Jérusalem</strong> et touchez des milliers de clients potentiels. Profitez de notre visibilité pour développer votre activité.</p>
-      <a href="https://wa.me/229160986656?text=Bonjour%20LSJ%20B%C3%A9nin%2C%20je%20souhaite%20devenir%20partenaire%20commer%C3%A7ant%20sur%20votre%20plateforme%20*Les%20Serveurs%20de%20J%C3%A9rusalem*.%20Mon%20activit%C3%A9%20est%20%3A%20"
-         class="btn-cta"
-         target="_blank"
-         rel="noopener noreferrer"
-         onclick="trackConversion('devenir_partenaire', 'cta_click')">
-        📋 Devenir Partenaire LSJ
-      </a>
+        <a class="btn" href="https://wa.me/229160986656" target="_blank">💬 Contacter via LSJ</a>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ========================================
-     AGROTOURISME
-     ======================================== -->
-<section id="tourisme" class="section-wrapper">
-  <div class="glass-inner-card">
-    <div class="title-block">
+<section id="tourisme">
+  <div class="card">
+    <div class="title">
       <h2>🌍 Immersion à Hêvié</h2>
-      <p>Notre ferme-école à Dogoudo est un espace de découverte et de partage. Venez apprendre et consommer frais au cœur de l'agroécologie béninoise.</p>
+      <p>Un espace de découverte, d’apprentissage, de production et de transmission.</p>
     </div>
-    <div class="map-frame-container">
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15860!2d2.28!3d6.43!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMjUnNDguMCJOIDLCsDE2JzQ4LjAiRQ!5e0!3m2!1sfr!2sbj!4v1234567897"
-        allowfullscreen=""
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
-        title="Localisation LSJ Bénin - Dogoudo Hêvié">
-      </iframe>
+    <div class="map">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15860!2d2.28!3d6.43!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMjUnNDguMCJOIDLCsDE2JzQ4LjAiRQ!5e0!3m2!1sfr!2sbj!4v1234567897" loading="lazy"></iframe>
     </div>
   </div>
 </section>
 
-<!-- ========================================
-     CONTACT
-     ======================================== -->
-<section id="contact" class="section-wrapper">
-  <div class="glass-inner-card">
-    <div class="title-block">
-      <h2>Prendre Contact</h2>
-      <p>Contactez-nous directement pour toute question, visite de la ferme ou demande de partenariat commercial.</p>
-    </div>
-    <div class="contact-grid">
-      <div class="contact-box">
-        <span class="contact-icon">📍</span>
-        <h4>Adresse</h4>
-        <p>Quartier Dogoudo,<br>Arrondissement de Hêvié,<br>Abomey-Calavi, Bénin</p>
-      </div>
-      <div class="contact-box">
-        <span class="contact-icon">📞</span>
-        <h4>WhatsApp / Tel</h4>
-        <p><a href="tel:+229160986656">+229 01 60 98 66 56</a></p>
-      </div>
-      <div class="contact-box">
-        <span class="contact-icon">✉️</span>
-        <h4>Email</h4>
-        <p><a href="mailto:gbetohopelaurg@gmail.com">gbetohopelaurg@gmail.com</a></p>
-      </div>
+<section id="contact">
+  <div class="card">
+    <div class="title"><h2>📞 Prendre Contact</h2></div>
+    <div class="grid">
+      <div class="box"><span class="icon">📍</span><h3>Adresse</h3><p>Dogoudo, Hêvié, Abomey-Calavi, Bénin</p></div>
+      <div class="box"><span class="icon">📞</span><h3>WhatsApp</h3><p><a href="tel:+229160986656">+229 01 60 98 66 56</a></p></div>
+      <div class="box"><span class="icon">✉️</span><h3>Email</h3><p><a href="mailto:gbetohopelaurg@gmail.com">gbetohopelaurg@gmail.com</a></p></div>
     </div>
   </div>
 </section>
 
-<!-- ========================================
-     BOUTONS FLOTTANTS
-     ======================================== -->
-<div class="dock-actions">
-  <a href="https://wa.me/229160986656" class="btn-action wa-btn" data-label="WhatsApp LSJ" title="Contacter LSJ sur WhatsApp" target="_blank" rel="noopener noreferrer">💬</a>
-  <a href="https://www.tiktok.com/@votre_compte" class="btn-action tk-btn" data-label="TikTok LSJ" title="Suivre LSJ sur TikTok" target="_blank" rel="noopener noreferrer">📱</a>
+<div class="dock">
+  <a class="wa" href="https://wa.me/229160986656" target="_blank">💬</a>
+  <a class="tk" href="https://www.tiktok.com/@votre_compte" target="_blank">📱</a>
 </div>
 
-<!-- ========================================
-     AUDIO
-     ======================================== -->
-<button class="music-control" id="audioToggle">
-  <span id="music-icon">🎵</span> MUSIQUE : <span id="music-status">OFF</span>
-</button>
+<button class="music" id="audioToggle">🎵 MUSIQUE : <span id="musicStatus">OFF</span></button>
 
-<audio id="bg-audio" loop>
+<audio id="bgAudio" loop>
   <source src="audio/afro-background-01.mp3" type="audio/mp3">
   <source src="audio/afro-background-02.mp3" type="audio/mp3">
 </audio>
 
-<!-- ========================================
-     FOOTER
-     ======================================== -->
 <footer>
-  <div class="footer-main">
-    <div class="footer-col">
-      <div class="footer-brand">
-        <img src="images/LogoPN.jpg" alt="Logo LSJ">
-        <h5>LSJ Bénin</h5>
-      </div>
-      <p>L'excellence agricole au service du développement souverain. Un projet d'autosuffisance progressive porté par Jude Gbetoho et accompagné par Michel Quinones.</p>
-      <p style="margin-top: 20px; font-weight: bold; color: white; letter-spacing: 2px; font-size: 1rem;">DE LA PRODUCTION À L'ASSIETTE.</p>
-    </div>
-    <div class="footer-col">
-      <h5>Menu Rapide</h5>
-      <a href="#accueil">Accueil</a>
-      <a href="#actualites">Évolution</a>
-      <a href="#expertise">Nos Expertises</a>
-      <a href="#vision">Notre Vision</a>
-      <a href="#partenaires">Nos Partenaires</a>
-      <a href="#contact">Contact</a>
-    </div>
-    <div class="footer-col">
-      <h5>Espace Partenaires</h5>
-      <a href="#partenaires">Devenir Partenaire</a>
-      <a href="#partenaires">Espace Commerçants</a>
-      <a href="#partenaires">Conditions & Commissions</a>
-    </div>
-    <div class="footer-col">
-      <h5>Langues & Accès</h5>
-      <p style="font-size: 0.88rem; margin-bottom: 18px; line-height: 1.6;">Utilisez le sélecteur en haut de page pour traduire en Espagnol ou Anglais.</p>
-      <a href="#">Mentions Légales</a>
-      <a href="#">Politique de Confidentialité</a>
-    </div>
-  </div>
-  <div class="copyright">
-    <p>© 2026 <strong>LSJ Bénin</strong> – Les Serveurs de Jérusalem. Direction Stratégique par Michel Quinones.</p>
-  </div>
+  <p>© 2026 <strong>LSJ Bénin</strong> – Les Serveurs de Jérusalem</p>
+  <p>De la Production à l’Assiette • Agriculture • Élevage • Gari • Jeunesse</p>
 </footer>
 
-<!-- ========================================
-     SCRIPTS
-     ======================================== -->
 <script>
-// --- LOADER ---
-window.addEventListener('load', () => {
-  setTimeout(() => {
-    document.getElementById('page-loader').classList.add('hidden');
-  }, 1500);
-});
+const audioBtn=document.getElementById("audioToggle");
+const audio=document.getElementById("bgAudio");
+const musicStatus=document.getElementById("musicStatus");
 
-// --- GOOGLE TRANSLATE ---
-function googleTranslateElementInit() {
-  new google.translate.TranslateElement({
-    pageLanguage: 'fr',
-    includedLanguages: 'fr,en,es',
-    layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-    autoDisplay: false
-  }, 'google_translate_element');
-}
-
-// --- AUDIO ---
-const audioBtn = document.getElementById("audioToggle");
-const audioPlayer = document.getElementById("bg-audio");
-const statusTxt = document.getElementById("music-status");
-const musicIcon = document.getElementById("music-icon");
-
-audioBtn.addEventListener("click", () => {
-  if (audioPlayer.paused) {
-    audioPlayer.play().catch(e => console.log('Audio play failed:', e));
-    statusTxt.innerText = "ON";
-    audioBtn.classList.add('playing');
-    musicIcon.innerText = "🎶";
-  } else {
-    audioPlayer.pause();
-    statusTxt.innerText = "OFF";
-    audioBtn.classList.remove('playing');
-    musicIcon.innerText = "🎵";
+audioBtn.addEventListener("click",()=>{
+  if(audio.paused){
+    audio.play().catch(()=>{});
+    musicStatus.textContent="ON";
+  }else{
+    audio.pause();
+    musicStatus.textContent="OFF";
   }
 });
 
-// --- HEADER SCROLL ---
-window.addEventListener("scroll", () => {
-  const header = document.getElementById("main-nav");
-  if (window.scrollY > 100) {
-    header.style.padding = "8px 8%";
-    header.style.background = "rgba(255,255,255,0.99)";
-    header.style.boxShadow = "0 4px 20px rgba(0,0,0,0.1)";
-  } else {
-    header.style.padding = "12px 8%";
-    header.style.background = "var(--bg-glass)";
-    header.style.boxShadow = "var(--shadow-md)";
-  }
-});
-
-// --- ACTIVE NAV ---
-const sections = document.querySelectorAll('section[id]');
-const navLinks = document.querySelectorAll('nav a');
-
-window.addEventListener('scroll', () => {
-  let current = '';
-  sections.forEach(section => {
-    const sectionTop = section.offsetTop;
-    if (scrollY >= (sectionTop - 200)) {
-      current = section.getAttribute('id');
-    }
+const links=document.querySelectorAll("nav a");
+window.addEventListener("scroll",()=>{
+  let current="";
+  document.querySelectorAll("section[id]").forEach(sec=>{
+    if(scrollY>=sec.offsetTop-180) current=sec.id;
   });
-  navLinks.forEach(link => {
-    link.classList.remove('active');
-    if (link.getAttribute('href') === '#' + current) {
-      link.classList.add('active');
-    }
-  });
-});
-
-// --- RECHERCHE PARTENAIRES ---
-function filterPartners() {
-  const input = document.getElementById("searchPartner").value.toLowerCase().trim();
-  const partners = document.querySelectorAll(".partner-featured");
-
-  partners.forEach(partner => {
-    const text = (partner.innerText + " " + (partner.dataset.category || "")).toLowerCase();
-    partner.style.display = text.includes(input) ? "block" : "none";
-  });
-}
-
-// --- TRACKING CONVERSIONS ---
-function trackConversion(partnerId, action) {
-  const timestamp = new Date().toISOString();
-  console.log('[LSJ TRACKING]', { partner: partnerId, action: action, time: timestamp, source: 'les_serveurs_de_jerusalem' });
-
-  const conversions = JSON.parse(localStorage.getItem('lsj_conversions') || '[]');
-  conversions.push({
-    partner: partnerId,
-    action: action,
-    timestamp: timestamp,
-    source: 'les_serveurs_de_jerusalem',
-    page: window.location.href
-  });
-  localStorage.setItem('lsj_conversions', JSON.stringify(conversions));
-
-  showNotification('✓ Contact enregistré via LSJ Bénin - Les Serveurs de Jérusalem');
-}
-
-function showNotification(message) {
-  const notif = document.getElementById('notification');
-  notif.textContent = message;
-  notif.classList.add('show');
-  setTimeout(() => { notif.classList.remove('show'); }, 4000);
-}
-
-// --- INTERSECTION OBSERVER (SCROLL ANIMATIONS) ---
-const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-    }
-  });
-}, observerOptions);
-
-document.querySelectorAll('.expert-card, .stat-card, .partner-featured, .contact-box').forEach(el => {
-  observer.observe(el);
-});
-
-// --- SMOOTH SCROLL ---
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function(e) {
-    e.preventDefault();
-    const target = document.querySelector(this.getAttribute('href'));
-    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  links.forEach(a=>{
+    a.classList.remove("active");
+    if(a.getAttribute("href")==="#"+current) a.classList.add("active");
   });
 });
 </script>
-<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 </body>
 </html>
