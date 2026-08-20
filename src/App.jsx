@@ -8,6 +8,7 @@ const NAV = [
   ["evolution", "Évolution"],
   ["expertise", "Expertise"],
   ["volailles", "Volailles"],
+  ["cuniculture", "Cuniculture"],
   ["gari", "Gari"],
   ["vision", "Vision"],
   ["partenaires", "Partenaires"],
@@ -47,6 +48,13 @@ const expertise = [
   ["🎓", "Formation jeunesse", "Transmettre des gestes concrets et rendre les savoir-faire accessibles et reproductibles."],
   ["🚚", "Logistique locale", "Organiser collecte, conditionnement, réservations et livraison au plus près du terrain."],
   ["💡", "Innovation simple", "Tester des solutions robustes, réparables et abordables, jusqu'à l'aquaponie solaire."],
+];
+
+const cuniculturePillars = [
+  ["📈", "Élevage progressif", "Commencer avec des moyens accessibles, suivre les résultats puis augmenter progressivement la capacité d’élevage."],
+  ["🌿", "Bien-être animal", "Améliorer les espaces, l’hygiène, la ventilation et prévoir des zones adaptées à la reproduction, au repos et à l’engraissement."],
+  ["💰", "Création de revenus", "Valoriser la vente de lapins, de reproducteurs et, à terme, développer une organisation commerciale plus régulière."],
+  ["🎓", "Transmission", "Faire de l’élevage un support pratique pour apprendre, former les jeunes et partager des méthodes reproductibles localement."],
 ];
 
 function useActiveSection() {
@@ -186,12 +194,7 @@ function App() {
 
               <div className="hero-actions">
                 <a className="button primary" href="https://www.youtube.com/watch?v=IoQ5yxhjBN4" target="_blank" rel="noreferrer">Voir sur YouTube</a>
-                <a
-                  className="button ghost"
-                  href="https://wa.me/2290160986656"
-                  target="_blank"
-                  rel="noreferrer"
-                >
+                <a className="button ghost" href="https://wa.me/2290160986656" target="_blank" rel="noreferrer">
                   Contacter Jude sur WhatsApp
                 </a>
               </div>
@@ -270,11 +273,7 @@ function App() {
         <section id="volailles" className="section animal-focus reveal">
           <div className="split">
             <div className="media-frame">
-              <img
-                src={asset("images/elevage_poules_plein_air_01.png")}
-                alt="Poules en plein air"
-                loading="lazy"
-              />
+              <img src={asset("images/elevage_poules_plein_air_01.png")} alt="Poules en plein air" loading="lazy" />
             </div>
             <div className="split-copy">
               <span className="eyebrow dark">🐔 Élevage écologique</span>
@@ -294,6 +293,30 @@ function App() {
           </div>
           <div className="animal-gallery">
             {["images/evolution-poules-01.png", "images/evolution-poules-04.png"].map((src) => <img key={src} src={asset(src)} alt="Évolution de l'élevage de volailles LSJ" loading="lazy" />)}
+          </div>
+        </section>
+
+        <section id="cuniculture" className="section soft reveal">
+          <SectionTitle
+            kicker="🐇 Cuniculture responsable"
+            title="De petits moyens, une organisation intelligente et une vision à long terme"
+            text="LSJ souhaite faire évoluer son élevage de lapins vers un modèle plus structuré, plus confortable pour les animaux et capable de créer progressivement des revenus locaux."
+          />
+          <div className="project-grid">
+            {cuniculturePillars.map(([icon, title, text]) => (
+              <article className="project-card" key={title}>
+                <span className="project-icon">{icon}</span>
+                <h3>{title}</h3>
+                <p>{text}</p>
+              </article>
+            ))}
+          </div>
+          <div className="production-strip" style={{ marginTop: "34px", marginBottom: 0 }}>
+            <span>Objectif LSJ</span>
+            <h2>Une cuniculture adaptée aux réalités locales</h2>
+            <p>
+              Développer un élevage accessible financièrement, respectueux des animaux et suffisamment organisé pour devenir une source de revenus durable. Le projet prévoit une amélioration progressive des cages et enclos, des espaces de reproduction, de l’alimentation, de l’hygiène et du suivi sanitaire.
+            </p>
           </div>
         </section>
 
@@ -335,8 +358,8 @@ function App() {
         <section id="partenaires" className="section reveal">
           <SectionTitle
             kicker="Coopération"
-            title="Nos Partenaires Commerçants"
-            text="LSJ est ouvert aux collaborations sérieuses : expertise, matériels, formation, débouchés commerciaux, réservations de production et investissements responsables."
+            title="Notre réseau de partenaires"
+            text="LSJ construit progressivement un réseau de partenaires agricoles, commerciaux, numériques et créatifs afin de créer des synergies utiles entre les projets."
           />
 
           <div className="partner-grid">
@@ -355,6 +378,19 @@ function App() {
             </article>
 
             <article className="partner-card callout">
+              <div className="partner-symbol">👗</div>
+              <div>
+                <span className="badge">Partenaire numérique & créatif</span>
+                <h3>Fashion Larissa</h3>
+                <p>
+                  Un projet de mode et de communication numérique qui illustre la volonté de LSJ de créer des passerelles entre agriculture, commerce, créativité, visibilité en ligne et initiatives entrepreneuriales.
+                </p>
+                <div className="tag-list"><span>Mode</span><span>Création</span><span>Communication</span><span>Numérique</span></div>
+                <a className="text-link" href="https://grial71.github.io/fashion-larissa/" target="_blank" rel="noreferrer">Découvrir Fashion Larissa →</a>
+              </div>
+            </article>
+
+            <article className="partner-card callout">
               <div className="partner-symbol">🤝</div>
               <div>
                 <span className="badge">Ouvert aux propositions</span>
@@ -363,12 +399,7 @@ function App() {
                   Entreprise, association, technicien, agriculteur, investisseur ou
                   partenaire international : échangeons directement avec Jude.
                 </p>
-                <a
-                  className="button primary compact"
-                  href="https://wa.me/2290160986656"
-                  target="_blank"
-                  rel="noreferrer"
-                >
+                <a className="button primary compact" href="https://wa.me/2290160986656" target="_blank" rel="noreferrer">
                   Contacter Jude
                 </a>
               </div>
@@ -386,12 +417,7 @@ function App() {
                 découvrir le Bénin, son environnement, sa culture, ses paysages et le
                 contexte dans lequel se développent les projets de LSJ.
               </p>
-              <a
-                className="button ghost"
-                href="https://www.youtube.com/watch?v=7hvqxD8VZf0&t=29s"
-                target="_blank"
-                rel="noreferrer"
-              >
+              <a className="button ghost" href="https://www.youtube.com/watch?v=7hvqxD8VZf0&t=29s" target="_blank" rel="noreferrer">
                 Voir la vidéo sur YouTube
               </a>
             </div>
