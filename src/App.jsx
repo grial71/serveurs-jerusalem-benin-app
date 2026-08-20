@@ -1,4 +1,5 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
+import { translate } from "./translations";
 
 const BASE = import.meta.env.BASE_URL || "/";
 const asset = (path) => `${BASE}${path.replace(/^\/+/, "")}`;
@@ -78,10 +79,21 @@ function useActiveSection() {
 
 function App() {
   const active = useActiveSection();
+  const [language, setLanguage] = useState(() => localStorage.getItem("lsj-language") || "fr");
   const [menuOpen, setMenuOpen] = useState(false);
   const [musicOn, setMusicOn] = useState(false);
   const audioRef = useRef(null);
   const [loading, setLoading] = useState(true);
+  const tr = (text) => translate(language, text);
+  const localizedEvolutionPhotos = useMemo(() => evolutionPhotos.map(([src, title, text]) => [src, tr(title), tr(text)]), [language]);
+  const localizedGariPhotos = useMemo(() => gariPhotos.map(([src, title, text]) => [src, tr(title), tr(text)]), [language]);
+  const localizedExpertise = useMemo(() => expertise.map(([icon, title, text]) => [icon, tr(title), tr(text)]), [language]);
+  const localizedCuniculture = useMemo(() => cuniculturePillars.map(([icon, title, text]) => [icon, tr(title), tr(text)]), [language]);
+
+  const changeLanguage = (nextLanguage) => {
+    setLanguage(nextLanguage);
+    localStorage.setItem("lsj-language", nextLanguage);
+  };
 
   const onMusic = async () => {
     const audio = audioRef.current;
@@ -104,6 +116,11 @@ function App() {
     window.addEventListener("resize", close);
     return () => window.removeEventListener("resize", close);
   }, []);
+
+  useEffect(() => {
+    document.documentElement.lang = language;
+    document.title = language === "fr" ? "LSJ Bénin — Les Serveurs de Jérusalem" : language === "en" ? "LSJ Benin — The Servants of Jerusalem" : "LSJ Benín — Los Servidores de Jerusalén";
+  }, [language]);
 
   useEffect(() => {
     const timer = window.setTimeout(() => setLoading(false), 750);
@@ -130,7 +147,7 @@ function App() {
       <div className={loading ? "loader" : "loader hidden"} aria-hidden={!loading}>
         <img src={asset("images/LogoPN.jpg")} alt="" />
         <strong>LSJ Bénin</strong>
-        <span>De la production à l'assiette</span>
+        <span>{tr("De la production à l'assiette")}</span>
       </div>
       <div className="custom-cursor" aria-hidden="true" />
       <div className="particles" aria-hidden="true">
@@ -140,18 +157,18 @@ function App() {
       <div className="ambient ambient-b" />
 
       <header className="site-header">
-        <a className="brand" href="#interview" aria-label="Retour à l'interview">
+        <a className="brand" href="#interview" aria-label={tr("Retour à l'interview")}>
           <img src={asset("images/LogoPN.jpg")} alt="Logo LSJ Bénin" />
           <span>
             <strong>LSJ Bénin</strong>
-            <small>Les Serveurs de Jérusalem</small>
+            <small>{tr("Les Serveurs de Jérusalem")}</small>
           </span>
         </a>
 
         <button
           className="menu-toggle"
           onClick={() => setMenuOpen((v) => !v)}
-          aria-label="Ouvrir le menu"
+          aria-label={tr("Ouvrir le menu")}
           aria-expanded={menuOpen}
         >
           <span />
@@ -167,44 +184,55 @@ function App() {
               className={active === id ? "active" : ""}
               onClick={() => setMenuOpen(false)}
             >
-              {label}
+              {tr(label)}
             </a>
           ))}
         </nav>
+        <div className="language-switcher" role="group" aria-label="Langue / Language / Idioma">
+          {["fr", "en", "es"].map((code) => (
+            <button
+              type="button"
+              key={code}
+              className={language === code ? "active" : ""}
+              onClick={() => changeLanguage(code)}
+              aria-pressed={language === code}
+            >
+              {code.toUpperCase()}
+            </button>
+          ))}
+        </div>
       </header>
 
       <main>
         <section id="interview" className="hero section-dark">
           <div className="hero-grid">
             <div className="hero-copy">
-              <span className="eyebrow">Première interview officielle</span>
+              <span className="eyebrow">{tr("Première interview officielle")}</span>
               <h1>
-                Visioconférence
-                <span>France – Bénin</span>
+                {tr("Visioconférence")}
+                <span>{tr("France – Bénin")}</span>
               </h1>
               <p className="hero-lead">
-                Une visioconférence consacrée à l'évolution du projet Les Serveurs de Jérusalem à
-                Dogoudo / Hêvié : production agricole, élevage, transformation locale, autonomie,
-                transmission des savoirs et recherche de partenariats durables.
+                {tr("Une visioconférence consacrée à l'évolution du projet Les Serveurs de Jérusalem à Dogoudo / Hêvié : production agricole, élevage, transformation locale, autonomie, transmission des savoirs et recherche de partenariats durables.")}
               </p>
 
-              <div className="topic-list" aria-label="Thèmes de l'interview">
-                {["Manioc et fabrication du gari", "Élevage de lapins amélioré", "Escargots africains", "Volailles en liberté", "Aquaponie et pisciculture", "Formation et jeunesse"].map((topic) => <span key={topic}>{topic}</span>)}
+              <div className="topic-list" aria-label={tr("Thèmes de l'interview")}>
+                {["Manioc et fabrication du gari", "Élevage de lapins amélioré", "Escargots africains", "Volailles en liberté", "Aquaponie et pisciculture", "Formation et jeunesse"].map((topic) => <span key={topic}>{tr(topic)}</span>)}
               </div>
 
               <div className="hero-actions">
-                <a className="button primary" href="https://www.youtube.com/watch?v=IoQ5yxhjBN4" target="_blank" rel="noreferrer">Voir sur YouTube</a>
+                <a className="button primary" href="https://www.youtube.com/watch?v=IoQ5yxhjBN4" target="_blank" rel="noreferrer">{tr("Voir sur YouTube")}</a>
                 <a className="button ghost" href="https://wa.me/2290160986656" target="_blank" rel="noreferrer">
-                  Contacter Jude sur WhatsApp
+                  {tr("Contacter Jude sur WhatsApp")}
                 </a>
               </div>
-              <p className="partnership-note">LSJ est ouvert aux partenariats sérieux, aux collaborations techniques, aux réservations de productions et aux projets d'investissement durable au Bénin.</p>
+              <p className="partnership-note">{tr("LSJ est ouvert aux partenariats sérieux, aux collaborations techniques, aux réservations de productions et aux projets d'investissement durable au Bénin.")}</p>
             </div>
 
             <div className="video-card">
               <div className="video-head">
                 <span className="live-dot" />
-                <span>Jude Gbetoho · Responsable de LSJ Bénin</span>
+                <span>{tr("Jude Gbetoho · Responsable de LSJ Bénin")}</span>
               </div>
               <div className="video-wrap">
                 <iframe
@@ -217,11 +245,11 @@ function App() {
               <div className="video-footer">
                 <div>
                   <strong>Jude Gbetoho</strong>
-                  <span>Responsable de LSJ</span>
+                  <span>{tr("Responsable de LSJ")}</span>
                 </div>
                 <div>
                   <strong>Michel Quinones</strong>
-                  <span>Conseiller bénévole : numérique, IA, communication et structuration de projets</span>
+                  <span>{tr("Conseiller bénévole : numérique, IA, communication et structuration de projets")}</span>
                 </div>
               </div>
             </div>
@@ -230,18 +258,18 @@ function App() {
 
         <section className="production-strip reveal" aria-label="Présentation LSJ">
           <span>Dogoudo · Hêvié · Bénin</span>
-          <h2>De la production à l'assiette</h2>
-          <p>Une exploitation agroécologique à Dogoudo / Hêvié reliant agriculture, élevage, transformation du manioc, formation des jeunes et économie circulaire.</p>
+          <h2>{tr("De la production à l'assiette")}</h2>
+          <p>{tr("Une exploitation agroécologique à Dogoudo / Hêvié reliant agriculture, élevage, transformation du manioc, formation des jeunes et économie circulaire.")}</p>
         </section>
 
         <section id="evolution" className="section reveal">
           <SectionTitle
-            kicker="Avancées de terrain"
-            title="L’évolution se construit étape par étape"
-            text="Des images concrètes pour suivre les progrès, documenter le travail et montrer aux partenaires une dynamique réelle."
+            kicker={tr("Avancées de terrain")}
+            title={tr("L’évolution se construit étape par étape")}
+            text={tr("Des images concrètes pour suivre les progrès, documenter le travail et montrer aux partenaires une dynamique réelle.")}
           />
           <div className="photo-grid">
-            {evolutionPhotos.map(([src, title, text]) => (
+            {localizedEvolutionPhotos.map(([src, title, text]) => (
               <article className="photo-card" key={src}>
                 <img src={asset(src)} alt={title} loading="lazy" />
                 <div>
@@ -255,12 +283,12 @@ function App() {
 
         <section id="expertise" className="section soft reveal">
           <SectionTitle
-            kicker="Expertise de terrain"
-            title="Produire, transformer et transmettre"
-            text="Six compétences complémentaires structurent un projet utile, progressif et ancré dans les réalités locales."
+            kicker={tr("Expertise de terrain")}
+            title={tr("Produire, transformer et transmettre")}
+            text={tr("Six compétences complémentaires structurent un projet utile, progressif et ancré dans les réalités locales.")}
           />
           <div className="project-grid">
-            {expertise.map(([icon, title, text]) => (
+            {localizedExpertise.map(([icon, title, text]) => (
               <article className="project-card" key={title}>
                 <span className="project-icon">{icon}</span>
                 <h3>{title}</h3>
@@ -276,18 +304,16 @@ function App() {
               <img src={asset("images/elevage_poules_plein_air_01.png")} alt="Poules en plein air" loading="lazy" />
             </div>
             <div className="split-copy">
-              <span className="eyebrow dark">🐔 Élevage écologique</span>
-              <h2>Un élevage familial, écologique et non industriel</h2>
+              <span className="eyebrow dark">{tr("🐔 Élevage écologique")}</span>
+              <h2>{tr("Un élevage familial, écologique et non industriel")}</h2>
               <p>
-                LSJ privilégie une évolution progressive : davantage d’espace, une
-                meilleure séparation des zones, des installations plus propres et
-                une gestion adaptée aux animaux et aux cultures.
+                {tr("LSJ privilégie une évolution progressive : davantage d’espace, une meilleure séparation des zones, des installations plus propres et une gestion adaptée aux animaux et aux cultures.")}
               </p>
               <ul className="check-list">
-                <li>Espaces de circulation et de repos</li>
-                <li>Amélioration de l’hygiène et de la sécurité</li>
-                <li>Organisation des zones élevage / cultures</li>
-                <li>Utilisation de matériaux accessibles localement</li>
+                <li>{tr("Espaces de circulation et de repos")}</li>
+                <li>{tr("Amélioration de l’hygiène et de la sécurité")}</li>
+                <li>{tr("Organisation des zones élevage / cultures")}</li>
+                <li>{tr("Utilisation de matériaux accessibles localement")}</li>
               </ul>
             </div>
           </div>
@@ -298,12 +324,12 @@ function App() {
 
         <section id="cuniculture" className="section soft reveal">
           <SectionTitle
-            kicker="🐇 Cuniculture responsable"
-            title="De petits moyens, une organisation intelligente et une vision à long terme"
-            text="LSJ souhaite faire évoluer son élevage de lapins vers un modèle plus structuré, plus confortable pour les animaux et capable de créer progressivement des revenus locaux."
+            kicker={tr("🐇 Cuniculture responsable")}
+            title={tr("De petits moyens, une organisation intelligente et une vision à long terme")}
+            text={tr("LSJ souhaite faire évoluer son élevage de lapins vers un modèle plus structuré, plus confortable pour les animaux et capable de créer progressivement des revenus locaux.")}
           />
           <div className="project-grid">
-            {cuniculturePillars.map(([icon, title, text]) => (
+            {localizedCuniculture.map(([icon, title, text]) => (
               <article className="project-card" key={title}>
                 <span className="project-icon">{icon}</span>
                 <h3>{title}</h3>
@@ -312,22 +338,22 @@ function App() {
             ))}
           </div>
           <div className="production-strip" style={{ marginTop: "34px", marginBottom: 0 }}>
-            <span>Objectif LSJ</span>
-            <h2>Une cuniculture adaptée aux réalités locales</h2>
+            <span>{tr("Objectif LSJ")}</span>
+            <h2>{tr("Une cuniculture adaptée aux réalités locales")}</h2>
             <p>
-              Développer un élevage accessible financièrement, respectueux des animaux et suffisamment organisé pour devenir une source de revenus durable. Le projet prévoit une amélioration progressive des cages et enclos, des espaces de reproduction, de l’alimentation, de l’hygiène et du suivi sanitaire.
+              {tr("Développer un élevage accessible financièrement, respectueux des animaux et suffisamment organisé pour devenir une source de revenus durable. Le projet prévoit une amélioration progressive des cages et enclos, des espaces de reproduction, de l’alimentation, de l’hygiène et du suivi sanitaire.")}
             </p>
           </div>
         </section>
 
         <section id="gari" className="section soft reveal">
           <SectionTitle
-            kicker="Transformation locale"
-            title="Du manioc au gari"
-            text="Du râpage traditionnel au séchage puis au conditionnement artisanal : transformer localement améliore la conservation et la valorisation commerciale du manioc."
+            kicker={tr("Transformation locale")}
+            title={tr("Du manioc au gari")}
+            text={tr("Du râpage traditionnel au séchage puis au conditionnement artisanal : transformer localement améliore la conservation et la valorisation commerciale du manioc.")}
           />
           <div className="photo-grid three">
-            {gariPhotos.map(([src, title, text]) => (
+            {localizedGariPhotos.map(([src, title, text]) => (
               <article className="photo-card" key={title}>
                 <img src={asset(src)} alt={title} loading="lazy" />
                 <div>
@@ -341,66 +367,62 @@ function App() {
 
         <section id="vision" className="section vision reveal">
           <div className="vision-panel">
-            <span className="eyebrow">Notre vision</span>
-            <h2>Un projet local qui peut devenir un outil de transmission</h2>
+            <span className="eyebrow">{tr("Notre vision")}</span>
+            <h2>{tr("Un projet local qui peut devenir un outil de transmission")}</h2>
             <p>
-              L'aventure LSJ Bénin est portée par la détermination de Jude Gbetoho. Inspiré par
-              l'esprit Songhaï, il construit progressivement un projet agricole, éducatif et
-              communautaire à Dogoudo / Hêvié.
+              {tr("L'aventure LSJ Bénin est portée par la détermination de Jude Gbetoho. Inspiré par l'esprit Songhaï, il construit progressivement un projet agricole, éducatif et communautaire à Dogoudo / Hêvié.")}
             </p>
-            <p>Avec l'accompagnement stratégique de Michel Quinones, le projet vise à relier production, formation, transformation, jeunesse et économie circulaire.</p>
+            <p>{tr("Avec l'accompagnement stratégique de Michel Quinones, le projet vise à relier production, formation, transformation, jeunesse et économie circulaire.")}</p>
             <blockquote>
-              « Notre ambition est d'offrir le meilleur de la terre, de la production à l'assiette, tout en formant une génération plus autonome. »
+              {tr("« Notre ambition est d'offrir le meilleur de la terre, de la production à l'assiette, tout en formant une génération plus autonome. »")}
             </blockquote>
           </div>
         </section>
 
         <section id="partenaires" className="section reveal">
           <SectionTitle
-            kicker="Coopération"
-            title="Notre réseau de partenaires"
-            text="LSJ construit progressivement un réseau de partenaires agricoles, commerciaux, numériques et créatifs afin de créer des synergies utiles entre les projets."
+            kicker={tr("Coopération")}
+            title={tr("Notre réseau de partenaires")}
+            text={tr("LSJ construit progressivement un réseau de partenaires agricoles, commerciaux, numériques et créatifs afin de créer des synergies utiles entre les projets.")}
           />
 
           <div className="partner-grid">
             <article className="partner-card featured">
               <img src={asset("images/logo-saveurs-nad.png")} alt="Les Saveurs de Nad" />
               <div>
-                <span className="badge">Partenaire local</span>
+                <span className="badge">{tr("Partenaire local")}</span>
                 <h3>Les Saveurs de Nad</h3>
                 <p>
-                  Cuisine béninoise, produits frais, plats à emporter et services
-                  traiteur. Un exemple de lien entre production locale et valorisation culinaire.
+                  {tr("Cuisine béninoise, produits frais, plats à emporter et services traiteur. Un exemple de lien entre production locale et valorisation culinaire.")}
                 </p>
-                <div className="tag-list"><span>Cuisine béninoise</span><span>Produits frais</span><span>Traiteur</span><span>Événements</span></div>
-                <a className="text-link" href="https://wa.me/2290160986656" target="_blank" rel="noreferrer">Contacter le partenaire →</a>
+                <div className="tag-list"><span>{tr("Cuisine béninoise")}</span><span>{tr("Produits frais")}</span><span>{tr("Traiteur")}</span><span>{tr("Événements")}</span></div>
+                <a className="text-link" href="https://wa.me/2290160986656" target="_blank" rel="noreferrer">{tr("Contacter le partenaire →")}</a>
               </div>
             </article>
 
             <article className="partner-card callout">
               <div className="partner-symbol">👗</div>
               <div>
-                <span className="badge">Partenaire numérique & créatif</span>
+                <span className="badge">{tr("Partenaire numérique & créatif")}</span>
                 <h3>Fashion Larissa</h3>
                 <p>
-                  Un projet de mode et de communication numérique qui illustre la volonté de LSJ de créer des passerelles entre agriculture, commerce, créativité, visibilité en ligne et initiatives entrepreneuriales.
+                  {tr("Un projet de mode et de communication numérique qui illustre la volonté de LSJ de créer des passerelles entre agriculture, commerce, créativité, visibilité en ligne et initiatives entrepreneuriales.")}
                 </p>
-                <div className="tag-list"><span>Mode</span><span>Création</span><span>Communication</span><span>Numérique</span></div>
-                <a className="text-link" href="https://grial71.github.io/fashion-larissa/" target="_blank" rel="noreferrer">Découvrir Fashion Larissa →</a>
+                <div className="tag-list"><span>{tr("Mode")}</span><span>{tr("Création")}</span><span>{tr("Communication")}</span><span>{tr("Numérique")}</span></div>
+                <a className="text-link" href="https://grial71.github.io/fashion-larissa/" target="_blank" rel="noreferrer">{tr("Découvrir Fashion Larissa →")}</a>
               </div>
             </article>
 
             <article className="partner-card callout">
               <div className="partner-symbol">🤝</div>
               <div>
-                <span className="badge">Ouvert aux propositions</span>
-                <h3>Vous souhaitez participer ?</h3>
+                <span className="badge">{tr("Ouvert aux propositions")}</span>
+                <h3>{tr("Vous souhaitez participer ?")}</h3>
                 <p>
-                  Entreprise, association, technicien, agriculteur, investisseur ou
-                  partenaire international : échangeons directement avec Jude.
+                  {tr("Entreprise, association, technicien, agriculteur, investisseur ou partenaire international : échangeons directement avec Jude.")}
                 </p>
                 <a className="button primary compact" href="https://wa.me/2290160986656" target="_blank" rel="noreferrer">
-                  Contacter Jude
+                  {tr("Contacter Jude")}
                 </a>
               </div>
             </article>
@@ -410,21 +432,19 @@ function App() {
         <section id="decouvrir-benin" className="section discover-benin reveal">
           <div className="discover-benin-grid">
             <div className="discover-benin-copy">
-              <span className="eyebrow">🇧🇯 Destination Bénin</span>
-              <h2>Découvrir le Bénin</h2>
+              <span className="eyebrow">{tr("🇧🇯 Destination Bénin")}</span>
+              <h2>{tr("Découvrir le Bénin")}</h2>
               <p>
-                Cette vidéo permet aux visiteurs et aux futurs partenaires de mieux
-                découvrir le Bénin, son environnement, sa culture, ses paysages et le
-                contexte dans lequel se développent les projets de LSJ.
+                {tr("Cette vidéo permet aux visiteurs et aux futurs partenaires de mieux découvrir le Bénin, son environnement, sa culture, ses paysages et le contexte dans lequel se développent les projets de LSJ.")}
               </p>
               <a className="button ghost" href="https://www.youtube.com/watch?v=7hvqxD8VZf0&t=29s" target="_blank" rel="noreferrer">
-                Voir la vidéo sur YouTube
+                {tr("Voir la vidéo sur YouTube")}
               </a>
             </div>
             <div className="video-card benin-video-card">
               <div className="video-head">
                 <span className="live-dot benin-dot" />
-                <span>Le Bénin en images</span>
+                <span>{tr("Le Bénin en images")}</span>
               </div>
               <div className="video-wrap">
                 <iframe
@@ -440,12 +460,12 @@ function App() {
         </section>
 
         <section id="agrotourisme" className="section soft reveal">
-          <SectionTitle kicker="Agrotourisme" title="Immersion à Hêvié" text="Découvrir un lieu vivant où production, apprentissage et transmission se rencontrent au quotidien." />
+          <SectionTitle kicker={tr("Agrotourisme")} title={tr("Immersion à Hêvié")} text={tr("Découvrir un lieu vivant où production, apprentissage et transmission se rencontrent au quotidien.")} />
           <div className="tourism-grid">
             <div className="tourism-copy">
-              <h3>Une expérience ancrée dans le territoire</h3>
-              <p>LSJ souhaite accueillir visiteurs, jeunes, partenaires et curieux dans un espace de découverte, d'apprentissage, de production et de transmission.</p>
-              <div className="tag-list large"><span>Découverte</span><span>Apprentissage</span><span>Production</span><span>Transmission</span></div>
+              <h3>{tr("Une expérience ancrée dans le territoire")}</h3>
+              <p>{tr("LSJ souhaite accueillir visiteurs, jeunes, partenaires et curieux dans un espace de découverte, d'apprentissage, de production et de transmission.")}</p>
+              <div className="tag-list large"><span>{tr("Découverte")}</span><span>{tr("Apprentissage")}</span><span>{tr("Production")}</span><span>{tr("Transmission")}</span></div>
             </div>
             <iframe title="Localisation de Hêvié, Abomey-Calavi" src="https://www.openstreetmap.org/export/embed.html?bbox=2.21%2C6.43%2C2.39%2C6.56&amp;layer=mapnik" loading="lazy" />
           </div>
@@ -454,8 +474,8 @@ function App() {
         <section id="contact" className="section contact-section">
           <div className="contact-card">
             <div>
-              <span className="eyebrow">Contact LSJ</span>
-              <h2>Parlons du projet</h2>
+              <span className="eyebrow">{tr("Contact LSJ")}</span>
+              <h2>{tr("Parlons du projet")}</h2>
               <p>Dogoudo, Hêvié, Abomey-Calavi, Bénin</p>
             </div>
             <div className="contact-links">
@@ -472,21 +492,21 @@ function App() {
           <img src={asset("images/LogoPN.jpg")} alt="" />
           <div>
             <strong>LSJ Bénin</strong>
-            <span>Les Serveurs de Jérusalem</span>
+            <span>{tr("Les Serveurs de Jérusalem")}</span>
           </div>
         </div>
-        <p>© 2026 LSJ Bénin · Agriculture · Élevage · Transformation · Jeunesse</p>
+        <p>© 2026 LSJ Bénin · {tr("Agriculture")} · {tr("Élevage")} · {tr("Transformation")} · {tr("Jeunesse")}</p>
       </footer>
 
-      <button className="music-button" onClick={onMusic} aria-label="Activer ou couper la musique">
+      <button className="music-button" onClick={onMusic} aria-label={tr("Activer ou couper la musique")}>
         {musicOn ? "♫ ON" : "♫ OFF"}
       </button>
       <audio ref={audioRef} loop preload="none">
         <source src={asset("audio/afro-background-01.mp3")} type="audio/mpeg" />
       </audio>
       <div className="floating-socials">
-        <a className="social whatsapp" href="https://wa.me/2290160986656" target="_blank" rel="noreferrer" aria-label="Contacter LSJ sur WhatsApp">WhatsApp</a>
-        <a className="social tiktok" href="https://www.tiktok.com/search?q=LSJ%20B%C3%A9nin" target="_blank" rel="noreferrer" aria-label="Rechercher LSJ Bénin sur TikTok">TikTok</a>
+        <a className="social whatsapp" href="https://wa.me/2290160986656" target="_blank" rel="noreferrer" aria-label={tr("Contacter LSJ sur WhatsApp")}>WhatsApp</a>
+        <a className="social tiktok" href="https://www.tiktok.com/search?q=LSJ%20B%C3%A9nin" target="_blank" rel="noreferrer" aria-label={tr("Rechercher LSJ Bénin sur TikTok")}>TikTok</a>
       </div>
     </div>
   );
