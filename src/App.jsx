@@ -15,6 +15,7 @@ const NAV = [
   ["partenaires", "Partenaires"],
   ["decouvrir-benin", "Découvrir le Bénin"],
   ["agrotourisme", "Agrotourisme"],
+  ["soutenir", "Soutenir"],
   ["contact", "Contact"],
 ];
 
@@ -232,19 +233,19 @@ function App() {
             <div className="video-card">
               <div className="video-head">
                 <span className="live-dot" />
-                <span>{tr("Jude Gbetoho · Responsable de LSJ Bénin")}</span>
+                <span>{tr("Pelaurg Jude GBETOHO · Responsable de LSJ Bénin")}</span>
               </div>
               <div className="video-wrap">
                 <iframe
                   src="https://www.youtube.com/embed/IoQ5yxhjBN4?rel=0&modestbranding=1"
-                  title="Visioconférence avec Jude Gbetoho — LSJ Bénin"
+                  title="Visioconférence avec Pelaurg Jude GBETOHO — LSJ Bénin"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   allowFullScreen
                 />
               </div>
               <div className="video-footer">
                 <div>
-                  <strong>Jude Gbetoho</strong>
+                  <strong>Pelaurg Jude GBETOHO</strong>
                   <span>{tr("Responsable de LSJ")}</span>
                 </div>
                 <div>
@@ -468,6 +469,40 @@ function App() {
               <div className="tag-list large"><span>{tr("Découverte")}</span><span>{tr("Apprentissage")}</span><span>{tr("Production")}</span><span>{tr("Transmission")}</span></div>
             </div>
             <iframe title="Localisation de Hêvié, Abomey-Calavi" src="https://www.openstreetmap.org/export/embed.html?bbox=2.21%2C6.43%2C2.39%2C6.56&amp;layer=mapnik" loading="lazy" />
+          </div>
+        </section>
+
+        <section id="soutenir" className="section reveal">
+          <SectionTitle
+            kicker={tr("Soutenir concrètement LSJ")}
+            title={tr("Envoyer du matériel utile")}
+            text={tr("Les personnes qui souhaitent soutenir les activités éducatives, numériques et les projets de LSJ peuvent proposer du matériel utile : ordinateurs portables, tablettes, accessoires informatiques, fournitures scolaires, petit matériel pédagogique ou technique en bon état.")}
+          />
+
+          <div className="contact-card">
+            <div>
+              <span className="eyebrow">{tr("Avant tout envoi")}</span>
+              <h3>{tr("Contactez d'abord Jude sur WhatsApp")}</h3>
+              <p>{tr("Avant d'expédier un colis, merci de vérifier avec Pelaurg Jude GBETOHO que le matériel est utile, autorisé à l'importation et qu'il pourra être retiré à l'arrivée.")}</p>
+              <p><strong>{tr("Destinataire :")}</strong> Pelaurg Jude GBETOHO</p>
+              <p><strong>{tr("Téléphone / WhatsApp :")}</strong> +229 01 60 98 66 56</p>
+              <p><strong>{tr("Point postal envisagé :")}</strong> Cotonou CTP — Centre de traitement postal, à environ 100 m du Centre Commercial EREVAN en quittant l'aéroport, Cotonou, Bénin.</p>
+              <p>{tr("Cette localisation correspond au Cotonou CTP répertorié officiellement par La Poste du Bénin. L'adresse d'acheminement exacte doit être confirmée avec Jude avant chaque envoi international.")}</p>
+            </div>
+
+            <div className="contact-links">
+              <a href="https://wa.me/2290160986656" target="_blank" rel="noreferrer">💬 {tr("Vérifier l'envoi avec Jude sur WhatsApp")}</a>
+              <a href="mailto:gbetohopelaurg@gmail.com">✉️ gbetohopelaurg@gmail.com</a>
+            </div>
+          </div>
+
+          <div className="project-card" style={{ marginTop: "24px" }}>
+            <div className="project-content">
+              <h3>{tr("Conseils pour un colis depuis la France")}</h3>
+              <p>{tr("Pour un Colissimo vers le Bénin, La Poste indique que des formalités douanières sont nécessaires pour les marchandises, notamment la déclaration CN23 et une facture commerciale ou pro forma. Le poids maximal annoncé pour cette destination peut atteindre 30 kg selon l'offre utilisée.")}</p>
+              <p>{tr("N'envoyez pas de matériel endommagé, de batteries non autorisées ou de produits interdits. Pour les ordinateurs et appareils électroniques, vérifiez toujours les règles d'expédition et de douane avant le dépôt.")}</p>
+              <a className="link-line" href="https://www.laposte.fr/fiche-destination/envoi-colis/benin" target="_blank" rel="noreferrer">{tr("Consulter les règles Colissimo pour le Bénin →")}</a>
+            </div>
           </div>
         </section>
 
