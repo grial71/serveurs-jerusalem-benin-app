@@ -7,7 +7,11 @@ export default function Catalogue({ tr }) {
   const [index, setIndex] = useState(null);
   const dialog = useRef(null);
   const opener = useRef(null);
-  const visible = filter ? photos.filter(photo => photo.category === filter) : photos;
+  const groups = (filter ? [filter] : categories).map(category => ({
+    category,
+    photos: photos.filter(photo => photo.category === category),
+  }));
+  const visible = groups.flatMap(group => group.photos);
   const current = visible[index] ?? visible[0];
   const imageUrl = photo => `${import.meta.env.BASE_URL}images/catalogue/${photo.file}`;
   const move = offset => setIndex(value => (value + offset + visible.length) % visible.length);
@@ -32,15 +36,22 @@ export default function Catalogue({ tr }) {
         ))}
       </div>
       <p className="catalogue-count" role="status">{tr("{count} photographies").replace("{count}", visible.length)}</p>
-      <div className="catalogue-grid">
-        {visible.map((photo, position) => (
-          <button type="button" className="catalogue-card" key={photo.file} onClick={event => open(event, position)}>
-            <span className="catalogue-thumb"><img src={imageUrl(photo)} loading="lazy" decoding="async" alt="" /></span>
-            <span className="catalogue-caption">
-              <small>{photo.file.slice(0, 2)} · {tr(photo.category)}</small>
-              <strong>{tr(photo.caption)}</strong>
-            </span>
-          </button>
+      <div className="catalogue-groups">
+        {groups.map(group => (
+          <section className="catalogue-group" key={group.category}>
+            <h3>{tr(group.category)}</h3>
+            <div className="catalogue-grid">
+              {group.photos.map(photo => (
+                <button type="button" className="catalogue-card" key={photo.file} onClick={event => open(event, visible.indexOf(photo))}>
+                  <span className="catalogue-thumb"><img src={imageUrl(photo)} loading="lazy" decoding="async" alt="" /></span>
+                  <span className="catalogue-caption">
+                    <small>{photo.file.slice(0, 2)}</small>
+                    <strong>{tr(photo.caption)}</strong>
+                  </span>
+                </button>
+              ))}
+            </div>
+          </section>
         ))}
       </div>
       <dialog ref={dialog} className="catalogue-dialog" aria-labelledby="catalogue-photo-caption"

@@ -6,7 +6,10 @@
 }
 .catalogue-filters button[aria-pressed="true"] { background: #214c34; color: #fff; }
 .catalogue-count { text-align: center; margin: 1rem 0 1.5rem; }
-.catalogue-grid { max-width: 1180px; margin: auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 235px), 1fr)); gap: 1.25rem; }
+.catalogue-groups { max-width: 1180px; margin: auto; display: grid; gap: 2rem; }
+.catalogue-group { padding: clamp(.75rem, 2vw, 1.5rem); border: 1px solid #d7e2d9; border-radius: 1.25rem; background: #fbfaf6; }
+.catalogue-group h3 { margin: 0 0 1rem; color: #193d2a; }
+.catalogue-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 235px), 1fr)); gap: 1.25rem; }
 .catalogue-card {
   display: flex; flex-direction: column; text-align: left; padding: 0; overflow: hidden;
   border: 1px solid #d7e2d9; border-radius: 1rem; background: #fff; color: #193d2a;
