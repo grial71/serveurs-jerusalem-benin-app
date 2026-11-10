@@ -1,5 +1,6 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { translate } from "./translations";
+import Catalogue from "./Catalogue.jsx";
 
 const BASE = import.meta.env.BASE_URL || "/";
 const asset = (path) => `${BASE}${path.replace(/^\/+/, "")}`;
@@ -11,6 +12,7 @@ const NAV = [
   ["volailles", "Volailles"],
   ["cuniculture", "Cuniculture"],
   ["gari", "Gari"],
+  ["catalogue", "Catalogue"],
   ["vision", "Vision"],
   ["partenaires", "Partenaires"],
   ["decouvrir-benin", "Découvrir le Bénin"],
@@ -70,7 +72,7 @@ function useActiveSection() {
           .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
         if (visible?.target?.id) setActive(visible.target.id);
       },
-      { rootMargin: "-20% 0px -65% 0px", threshold: [0.05, 0.2, 0.5] }
+      { rootMargin: "-20% 0px -65% 0px", threshold: [0, 0.05, 0.2, 0.5] }
     );
     sections.forEach((s) => obs.observe(s));
     return () => obs.disconnect();
@@ -365,6 +367,8 @@ function App() {
             ))}
           </div>
         </section>
+
+        <Catalogue tr={tr} />
 
         <section id="vision" className="section vision reveal">
           <div className="vision-panel">

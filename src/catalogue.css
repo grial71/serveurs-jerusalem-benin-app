@@ -1,0 +1,31 @@
+.lsj-catalogue { scroll-margin-top: 7rem; }
+.catalogue-filters, .catalogue-controls { display: flex; flex-wrap: wrap; gap: .6rem; align-items: center; justify-content: center; }
+.catalogue-filters button, .catalogue-dialog button {
+  min-height: 44px; min-width: 44px; padding: .55rem 1rem; border: 1px solid #597363;
+  border-radius: 2rem; background: #fff; color: #193d2a; cursor: pointer; font: inherit;
+}
+.catalogue-filters button[aria-pressed="true"] { background: #214c34; color: #fff; }
+.catalogue-count { text-align: center; margin: 1rem 0 1.5rem; }
+.catalogue-grid { max-width: 1180px; margin: auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 235px), 1fr)); gap: 1.25rem; }
+.catalogue-card {
+  display: flex; flex-direction: column; text-align: left; padding: 0; overflow: hidden;
+  border: 1px solid #d7e2d9; border-radius: 1rem; background: #fff; color: #193d2a;
+  box-shadow: 0 5px 16px #18372812; cursor: pointer; font: inherit;
+}
+.catalogue-thumb { display: block; width: 100%; aspect-ratio: 4 / 3; overflow: hidden; background: #e2eae3; }
+.catalogue-thumb img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .25s ease; }
+@media (hover: hover) { .catalogue-card:hover img { transform: scale(1.04); } }
+.catalogue-caption { display: grid; gap: .25rem; padding: .8rem 1rem 1rem; }
+.catalogue-caption small { color: #4c6555; }
+.lsj-catalogue button:focus-visible { outline: 3px solid #b47122; outline-offset: 2px; }
+.catalogue-dialog {
+  position: fixed; inset: 0; margin: auto; width: min(94vw, 850px); max-height: 94dvh;
+  padding: 0; border: 1px solid #52715e; border-radius: 1rem; background: #13291e; color: white;
+}
+.catalogue-dialog::backdrop { background: #08160edb; }
+.catalogue-viewer { display: grid; gap: .6rem; padding: .8rem; text-align: center; }
+.catalogue-viewer img { display: block; width: 100%; height: min(58dvh, 650px); object-fit: contain; }
+.catalogue-viewer p { margin: 0; }
+.catalogue-close { justify-self: end; }
+body:has(.catalogue-dialog[open]) { overflow: hidden; }
+@media (prefers-reduced-motion: reduce) { .catalogue-thumb img { transition: none; } }

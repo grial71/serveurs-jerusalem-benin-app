@@ -4,3 +4,4 @@ dist
 
 .local-backup-*.zip
 .vite-dev.*.log
+/public/images/catalogue/
