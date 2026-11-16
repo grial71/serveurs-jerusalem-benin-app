@@ -14,6 +14,7 @@ const NAV = [
   ["gari", "Gari"],
   ["catalogue", "Catalogue"],
   ["vision", "Vision"],
+  ["universa", "UNIVERSA"],
   ["partenaires", "Partenaires"],
   ["decouvrir-benin", "Découvrir le Bénin"],
   ["agrotourisme", "Agrotourisme"],
@@ -381,6 +382,42 @@ function App() {
             <blockquote>
               {tr("« Notre ambition est d'offrir le meilleur de la terre, de la production à l'assiette, tout en formant une génération plus autonome. »")}
             </blockquote>
+          </div>
+        </section>
+
+        <section id="universa" className="section soft reveal">
+          <SectionTitle
+            kicker={tr("Conseil · Éducation · Transmission")}
+            title="UNIVERSA — Réinventer l’éducation pour réinventer l’humanité"
+            text={tr("Une réalisation personnelle de Michel Quinones, conseiller bénévole de LSJ-Bénin, autour de l’éducation, de la coopération entre générations, de la nature, de la pensée critique et d’un usage responsable de l’intelligence artificielle.")}
+          />
+          <div className="split">
+            <div className="video-card">
+              <div className="video-head">
+                <span className="live-dot" />
+                <span>UNIVERSA · Michel Quinones</span>
+              </div>
+              <div className="video-wrap">
+                <iframe
+                  src="https://www.youtube.com/embed/6UtTmXrvLcQ?rel=0&modestbranding=1"
+                  title="UNIVERSA — lecture audio du livre de Michel Quinones"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                  loading="lazy"
+                />
+              </div>
+            </div>
+            <div className="split-copy">
+              <span className="eyebrow dark">{tr("Le regard du conseiller bénévole")}</span>
+              <h2>{tr("Éduquer · Prévenir · Protéger · Préparer")}</h2>
+              <p>{tr("Michel Quinones accompagne bénévolement Jude dans la structuration de certains projets, la communication, le numérique, l’intelligence artificielle et la recherche de partenaires.")}</p>
+              <p>{tr("UNIVERSA prolonge cette démarche de transmission : une réflexion sur une éducation ouverte à tous les âges et sur une société où l’humain, la nature et l’intelligence artificielle peuvent évoluer ensemble.")}</p>
+              <div className="hero-actions">
+                <a className="button primary" href="https://www.amazon.fr/dp/B0HPPD35DQ" target="_blank" rel="noreferrer">{tr("Acheter UNIVERSA sur Amazon")}</a>
+                <a className="button ghost" href="https://www.youtube.com/watch?v=6UtTmXrvLcQ" target="_blank" rel="noreferrer">{tr("Voir la vidéo sur YouTube")}</a>
+              </div>
+              <p className="partnership-note">{tr("UNIVERSA est une œuvre personnelle de Michel Quinones, distincte des activités et du financement de LSJ-Bénin.")}</p>
+            </div>
           </div>
         </section>
 
