@@ -581,6 +581,7 @@ function App() {
         <source src={asset("audio/afro-background-01.mp3")} type="audio/mpeg" />
       </audio>
       <div className="floating-socials">
+        <a className="social" href="#interview" aria-label={tr("Retour au menu et en haut de la page")}>↑ {tr("Menu")}</a>
         <a className="social whatsapp" href="https://wa.me/2290160986656" target="_blank" rel="noreferrer" aria-label={tr("Contacter LSJ sur WhatsApp")}>WhatsApp</a>
         <a className="social tiktok" href="https://www.tiktok.com/search?q=LSJ%20B%C3%A9nin" target="_blank" rel="noreferrer" aria-label={tr("Rechercher LSJ Bénin sur TikTok")}>TikTok</a>
       </div>
