@@ -663,3 +663,20 @@ footer {
   .reveal { opacity: 1; transform: none; }
   .particles { display: none; }
 }
+
+
+/* Bouton retour au menu : contraste renforcé */
+.floating-socials .back-menu {
+  background: #0b3d2e;
+  color: #ffffff;
+  border: 2px solid #f2c14e;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  font-weight: 800;
+}
+.floating-socials .back-menu:hover,
+.floating-socials .back-menu:focus-visible {
+  background: #06271e;
+  color: #ffffff;
+  border-color: #ffd76a;
+  transform: translateY(-2px);
+}
